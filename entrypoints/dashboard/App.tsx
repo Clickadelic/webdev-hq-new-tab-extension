@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import BackgroundImage from "@/components/global/BackgroundImage"
 import HeaderSidebar from "@/components/dashboard/HeaderSidebar"
 import { SidebarProvider } from "@/components/ui/sidebar"
-import DashboardPage from "./pages/DashboardPage"
+import DashboardPage from "../newtab/pages/DashboardPage"
 import * as React from "react"
 import { useState } from "react"
 
