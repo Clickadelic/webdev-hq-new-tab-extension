@@ -14,11 +14,11 @@ const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundIm
 
 	useEffect(() => {
 		resetImage();
-		console.log("Sending getRandomImage message to background script");
+		// console.log("Sending getRandomImage message to background script");
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
-			console.log("Raw response from background:", response);
-			console.log("Response type:", typeof response);
-			console.log("Response has data:", response && "data" in response);
+			// console.log("Raw response from background:", response);
+			// console.log("Response type:", typeof response);
+			// console.log("Response has data:", response && "data" in response);
 			if (response && response.data) {
 				console.log("Image response data:", response.data);
 			}

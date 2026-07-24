@@ -1,10 +1,12 @@
+import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import BackgroundImage from "@/components/global/BackgroundImage";
-import HeaderSidebar from "@/components/dashboard/HeaderSidebar";
+
 import { SidebarProvider } from "@/components/ui/sidebar";
+
 import DashboardPage from "../newtab/pages/DashboardPage";
-import * as React from "react";
+
 import { useState } from "react";
 
 import { BsTextIndentRight } from "react-icons/bs";
@@ -13,18 +15,18 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { ThemeProvider } from "@/components/global/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
-import { AccountDropdown } from "@/components/dashboard/AccountDropdown";
-import { SidebarSheet } from "@/components/dashboard/SidebarSheet";
-import { MegaMenu } from "@/components/dashboard/MegaMenu";
-import { NotificationButton } from "@/components/dashboard/NotificationButton";
-import { InboxButton } from "@/components/dashboard/InboxButton";
-import { FullscreenButton } from "@/components/dashboard/FullscreenButton";
-import { LangSwitch } from "@/components/dashboard/LangSwitch";
+import { AccountDropdown } from "@/components/newtab/AccountDropdown";
+import { SidebarSheet } from "@/components/newtab/SidebarSheet";
+import { MegaMenu } from "@/components/newtab/MegaMenu";
+import { NotificationButton } from "@/components/newtab/NotificationButton";
+import { InboxButton } from "@/components/newtab/InboxButton";
+import { FullscreenButton } from "@/components/newtab/FullscreenButton";
+import { LangSwitch } from "@/components/newtab/LangSwitch";
 import { Grip, Map, PieChart, SquareTerminal } from "lucide-react";
 
-import { NavMain } from "@/components/dashboard/nav-main";
-import { NavCommunityItems } from "@/components/dashboard/nav-community-items";
-import { NavUser } from "@/components/dashboard/nav-user";
+import { NavMain } from "@/components/newtab/nav-main";
+import { NavCommunityItems } from "@/components/newtab/nav-community-items";
+import { NavUser } from "@/components/newtab/nav-user";
 
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
 
@@ -32,7 +34,6 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 
 import Logo from "@/components/global/Logo";
 import { cn } from "@/lib/utils";
-import { is } from "date-fns/locale";
 
 const App = () => {
 	const data = {
@@ -99,7 +100,7 @@ const App = () => {
 							<SidebarRail />
 						</Sidebar>
 					</aside>
-					<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-15 p-3 border-b bg-white z-50")}>
+					<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-15 p-3 border-b bg-white dark:bg-neutral-900 z-50")}>
 						<nav className="header-nav flex justify-between w-max">
 							<div className="inline-flex gap-3">
 								<SidebarTrigger variant="ghost" size="sm" className="rounded-xs">
