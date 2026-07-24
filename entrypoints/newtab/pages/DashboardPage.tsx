@@ -1,26 +1,23 @@
-import AppIcon from "@/components/AppIcon";
-import BackgroundImage from "@/components/BackgroundImage";
-import ButtonBar from "@/components/ButtonBar";
-import CircularMenu from "@/components/CircularMenu";
-import Clock from "@/components/Clock";
+import { Link } from "react-router-dom";
+import EntrypointButton from "@/components/EntrypointButton";
+import { Button } from "@/components/ui/button";
 
-import UserInfoBox from "@/components/UserInfoBox";
-import MultiSearch from "@/components/MultiSearch";
-import TabsModule from "@/components/TabsModule";
-// import EntrypointButton from "@/components/global/EntrypointButton"
-
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { Toaster } from "@/components/ui/sonner";
 const DashboardPage = () => {
 	return (
-		<>
-			<div className="flex justify-between gap-1 p-1">
-				<AppIcon url={import.meta.env.WXT_HOMEPAGE_URL} classNames="flex justify-center items-center size-[64px]" />
-				<Clock classNames="text-white mt-2 font-light text-shadow-lg text-3xl space-x-2" />
+		<div className="flex flex-col gap-4 p-4">
+			<h1 className="text-2xl font-semibold text-white drop-shadow">Dashboard</h1>
+
+			<div className="flex flex-wrap gap-3">
+				{/* In-app navigation — uses React Router, stays within the newtab page */}
+				<Button asChild variant="secondary">
+					<Link to="/tabs">Tabs</Link>
+				</Button>
+
+				{/* External entrypoints — opens a new browser tab */}
+				<EntrypointButton path="get-started.html" translationLabel="GetStarted" />
+				<EntrypointButton path="options.html" translationLabel="Options" />
 			</div>
-			<MultiSearch classNames="w-full max-w-[890px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-800/30" />
-			<TabsModule classNames="w-full max-w-[890px] mx-auto flex flex-row" />
-		</>
+		</div>
 	);
 };
 

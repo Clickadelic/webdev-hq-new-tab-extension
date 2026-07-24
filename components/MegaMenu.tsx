@@ -1,13 +1,13 @@
-import { AiOutlineWindows } from "react-icons/ai"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
-import { IoArrowForwardOutline } from "react-icons/io5"
+import { AiOutlineWindows } from "react-icons/ai";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 export const MegaMenu = () => {
 	return (
 		<DropdownMenu modal={false}>
 			<DropdownMenuTrigger asChild>
-				<Button variant="ghost" className="hover:bg-slate-100 size-10 p-3 rounded">
+				<Button variant="ghost" className="hover:bg-neutral-100 size-10 p-3 rounded">
 					<AiOutlineWindows className="size-5" />
 				</Button>
 			</DropdownMenuTrigger>
@@ -93,5 +93,5 @@ export const MegaMenu = () => {
 				</div>
 			</DropdownMenuContent>
 		</DropdownMenu>
-	)
-}
+	);
+};
