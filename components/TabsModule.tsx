@@ -1,10 +1,10 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import UserApps from "@/components/newtab/tabs-module/UserApps";
-import UserHistory from "@/components/newtab/tabs-module/UserHistory";
-import UserTodos from "@/components/newtab/tabs-module/UserTodos";
-import UserDownloads from "@/components/newtab/tabs-module/UserDownloads";
-import UserProjects from "@/components/newtab/tabs-module/UserProjects";
+import UserApps from "@/components/tabs-module/UserApps";
+import UserHistory from "@/components/tabs-module/UserHistory";
+import UserTodos from "@/components/tabs-module/UserTodos";
+import UserDownloads from "@/components/tabs-module/UserDownloads";
+import UserProjects from "@/components/tabs-module/UserProjects";
 
 import { BsApp } from "react-icons/bs";
 import { BsListCheck } from "react-icons/bs";

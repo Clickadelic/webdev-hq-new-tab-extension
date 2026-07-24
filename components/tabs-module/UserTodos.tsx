@@ -9,8 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
-import { FormError } from "@/components/global/forms/form-error";
-import { FormSuccess } from "@/components/global/forms/form-success";
+import { FormError } from "@/components/forms/form-error";
+import { FormSuccess } from "@/components/forms/form-success";
 import { Switch } from "@/components/ui/switch";
 
 import { Plus } from "lucide-react";
@@ -22,7 +22,7 @@ import { TodoSchema } from "@/schemas";
 import { useState, useRef } from "react";
 import { TbEdit } from "react-icons/tb";
 import { BsListCheck } from "react-icons/bs";
-import { DatePickerButton } from "@/components/global/DatepickerButton";
+import { DatePickerButton } from "@/components/DatepickerButton";
 
 const UserTodos = () => {
 	const { todos, addTodo, toggleTodo, deleteTodo } = useTodoStore();

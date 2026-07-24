@@ -1,15 +1,15 @@
-import AppIcon from "@/components/global/AppIcon";
-import BackgroundImage from "@/components/global/BackgroundImage";
-import ButtonBar from "@/components/newtab/ButtonBar";
-import CircularMenu from "@/components/global/CircularMenu";
-import Clock from "@/components/newtab/Clock";
+import AppIcon from "@/components/AppIcon";
+import BackgroundImage from "@/components/BackgroundImage";
+import ButtonBar from "@/components/ButtonBar";
+import CircularMenu from "@/components/CircularMenu";
+import Clock from "@/components/Clock";
 
-import UserInfoBox from "@/components/newtab/UserInfoBox";
-import MultiSearch from "@/components/newtab/MultiSearch";
-import TabsModule from "@/components/newtab/TabsModule";
+import UserInfoBox from "@/components/UserInfoBox";
+import MultiSearch from "@/components/MultiSearch";
+import TabsModule from "@/components/TabsModule";
 // import EntrypointButton from "@/components/global/EntrypointButton"
 
-import { ThemeProvider } from "@/components/global/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 const DashboardPage = () => {
 	return (

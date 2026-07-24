@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import BackgroundImage from "@/components/global/BackgroundImage";
+import BackgroundImage from "@/components/BackgroundImage";
 
 import { SidebarProvider } from "@/components/ui/sidebar";
 
@@ -12,27 +12,27 @@ import { useState } from "react";
 import { BsTextIndentRight } from "react-icons/bs";
 import { BsTextIndentLeft } from "react-icons/bs";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { ThemeProvider } from "@/components/global/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
-import { AccountDropdown } from "@/components/newtab/AccountDropdown";
-import { SidebarSheet } from "@/components/newtab/SidebarSheet";
-import { MegaMenu } from "@/components/newtab/MegaMenu";
-import { NotificationButton } from "@/components/newtab/NotificationButton";
-import { InboxButton } from "@/components/newtab/InboxButton";
-import { FullscreenButton } from "@/components/newtab/FullscreenButton";
-import { LangSwitch } from "@/components/newtab/LangSwitch";
+import { AccountDropdown } from "@/components/AccountDropdown";
+import { SidebarSheet } from "@/components/SidebarSheet";
+import { MegaMenu } from "@/components/MegaMenu";
+import { NotificationButton } from "@/components/NotificationButton";
+import { InboxButton } from "@/components/InboxButton";
+import { FullscreenButton } from "@/components/FullscreenButton";
+import { LangSwitch } from "@/components/LangSwitch";
 import { Grip, Map, PieChart, SquareTerminal } from "lucide-react";
 
-import { NavMain } from "@/components/newtab/nav-main";
-import { NavCommunityItems } from "@/components/newtab/nav-community-items";
-import { NavUser } from "@/components/newtab/nav-user";
+import { NavMain } from "@/components/nav-main";
+import { NavCommunityItems } from "@/components/nav-community-items";
+import { NavUser } from "@/components/nav-user";
 
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
 
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
-import Logo from "@/components/global/Logo";
+import Logo from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 const App = () => {

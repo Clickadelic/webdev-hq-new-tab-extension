@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Grip, Map, PieChart, SquareTerminal } from "lucide-react";
 
-import { NavMain } from "@/components/newtab/nav-main";
-import { NavCommunityItems } from "@/components/newtab/nav-community-items";
-import { NavUser } from "@/components/newtab/nav-user";
+import { NavMain } from "@/components/nav-main";
+import { NavCommunityItems } from "@/components/nav-community-items";
+import { NavUser } from "@/components/nav-user";
 
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
-import Logo from "../global/Logo";
+import Logo from "./Logo";
 
 const data = {
 	user: {

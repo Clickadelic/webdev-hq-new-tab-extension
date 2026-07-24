@@ -1,38 +1,38 @@
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Link } from "react-router-dom"
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Link } from "react-router-dom";
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
-import { FormError } from "@/components/global/forms/form-error"
-import { FormSuccess } from "@/components/global/forms/form-success"
-import { useState } from "react"
-import { RxExternalLink } from "react-icons/rx"
-import { BsApp, BsHouse } from "react-icons/bs"
-import { FaGitAlt } from "react-icons/fa"
-import { Plus } from "lucide-react"
-import { TbEdit } from "react-icons/tb"
-import { AiOutlineFundProjectionScreen } from "react-icons/ai"
-import { AiOutlineEdit } from "react-icons/ai"
-import { BsTrash } from "react-icons/bs"
-import { HiOutlineDotsVertical } from "react-icons/hi"
-import { useProjectStore } from "@/stores/use-project-store"
-import { ProjectSchema } from "@/schemas"
-import { RxHome } from "react-icons/rx"
+import { FormError } from "@/components/forms/form-error";
+import { FormSuccess } from "@/components/forms/form-success";
+import { useState } from "react";
+import { RxExternalLink } from "react-icons/rx";
+import { BsApp, BsHouse } from "react-icons/bs";
+import { FaGitAlt } from "react-icons/fa";
+import { Plus } from "lucide-react";
+import { TbEdit } from "react-icons/tb";
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
+import { BsTrash } from "react-icons/bs";
+import { HiOutlineDotsVertical } from "react-icons/hi";
+import { useProjectStore } from "@/stores/use-project-store";
+import { ProjectSchema } from "@/schemas";
+import { RxHome } from "react-icons/rx";
 const UserProjects = () => {
-	const [isModalOpen, setIsModalOpen] = useState(false)
-	const [isEditing, setIsEditing] = useState(false)
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isEditing, setIsEditing] = useState(false);
 
-	const [success, setSuccess] = useState("")
-	const [error, setError] = useState("")
-	const [isLoading, setIsLoading] = useState(false)
-	const [editingProjectId, setEditingProjectId] = useState<string | null>(null)
+	const [success, setSuccess] = useState("");
+	const [error, setError] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
+	const [editingProjectId, setEditingProjectId] = useState<string | null>(null);
 
 	let form = useForm<z.infer<typeof ProjectSchema>>({
 		resolver: zodResolver(ProjectSchema),
@@ -43,51 +43,51 @@ const UserProjects = () => {
 			gitUrl: "",
 			done: false
 		}
-	})
+	});
 
-	const { projects, addProject, getProject, editProject, removeProject } = useProjectStore()
+	const { projects, addProject, getProject, editProject, removeProject } = useProjectStore();
 
 	const onAddSubmit = (values: z.infer<typeof ProjectSchema>) => {
-		setError("")
-		setSuccess("")
-		setIsLoading(true)
-		const newProject = { id: crypto.randomUUID(), ...values }
-		addProject(newProject)
-		setSuccess(chrome.i18n.getMessage("project_added", "Project added successfully.") || "Project added successfully.")
-		form.reset()
+		setError("");
+		setSuccess("");
+		setIsLoading(true);
+		const newProject = { id: crypto.randomUUID(), ...values };
+		addProject(newProject);
+		setSuccess(chrome.i18n.getMessage("project_added", "Project added successfully.") || "Project added successfully.");
+		form.reset();
 		setTimeout(() => {
-			setIsLoading(false)
-			setIsModalOpen(false)
-			setSuccess("")
-		}, 1250)
-	}
+			setIsLoading(false);
+			setIsModalOpen(false);
+			setSuccess("");
+		}, 1250);
+	};
 
 	const onDelete = (id: string) => {
-		useProjectStore.getState().removeProject(id)
-	}
+		useProjectStore.getState().removeProject(id);
+	};
 
 	const onEdit = (id: string) => {
-		setIsEditing(true)
-		setIsModalOpen(true)
-		setEditingProjectId(id)
+		setIsEditing(true);
+		setIsModalOpen(true);
+		setEditingProjectId(id);
 
-		const currentApp = projects.find(project => project.id === id)
+		const currentApp = projects.find(project => project.id === id);
 		if (currentApp) {
-			form.setValue("title", currentApp.title)
-			form.setValue("description", currentApp.description)
-			form.setValue("projectUrl", currentApp.projectUrl)
-			form.setValue("gitUrl", currentApp.gitUrl)
+			form.setValue("title", currentApp.title);
+			form.setValue("description", currentApp.description);
+			form.setValue("projectUrl", currentApp.projectUrl);
+			form.setValue("gitUrl", currentApp.gitUrl);
 		}
-	}
+	};
 
 	const onEditSubmit = (values: z.infer<typeof ProjectSchema>) => {
-		if (!editingProjectId) return
+		if (!editingProjectId) return;
 
-		setError("")
-		setSuccess("")
-		setIsLoading(true)
+		setError("");
+		setSuccess("");
+		setIsLoading(true);
 
-		const currentProject = projects.find(project => project.id === editingProjectId)
+		const currentProject = projects.find(project => project.id === editingProjectId);
 		if (currentProject) {
 			const updatedProject = {
 				id: currentProject.id,
@@ -96,20 +96,20 @@ const UserProjects = () => {
 				projectUrl: values.projectUrl,
 				gitUrl: values.gitUrl,
 				done: values.done
-			}
-			editProject(updatedProject)
+			};
+			editProject(updatedProject);
 		}
 
-		setSuccess(chrome.i18n.getMessage("app_edited"))
-		form.reset()
-		setEditingProjectId(null)
-		setIsEditing(false)
+		setSuccess(chrome.i18n.getMessage("app_edited"));
+		form.reset();
+		setEditingProjectId(null);
+		setIsEditing(false);
 		setTimeout(() => {
-			setIsLoading(false)
-			setIsModalOpen(false)
-			setSuccess("")
-		}, 1250)
-	}
+			setIsLoading(false);
+			setIsModalOpen(false);
+			setSuccess("");
+		}, 1250);
+	};
 
 	return (
 		<div className="bg-white/30 p-1 rounded backdrop-blur dark:bg-slate-800/30">
@@ -154,7 +154,7 @@ const UserProjects = () => {
 										</Button>
 										<Button
 											onClick={() => {
-												onDelete(project.id)
+												onDelete(project.id);
 											}}
 											variant="ghost"
 											size="sm"
@@ -171,11 +171,11 @@ const UserProjects = () => {
 					<Dialog
 						open={isModalOpen}
 						onOpenChange={open => {
-							setIsModalOpen(open)
+							setIsModalOpen(open);
 							if (!open) {
-								setIsEditing(false)
-								setEditingProjectId(null)
-								form.reset()
+								setIsEditing(false);
+								setEditingProjectId(null);
+								form.reset();
 							}
 						}}
 					>
@@ -266,7 +266,7 @@ const UserProjects = () => {
 				</li>
 			</ul>
 		</div>
-	)
-}
+	);
+};
 
-export default UserProjects
+export default UserProjects;
