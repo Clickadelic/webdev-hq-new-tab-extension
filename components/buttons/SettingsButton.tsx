@@ -1,11 +1,11 @@
-import { HiOutlineCog } from "react-icons/hi"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { HiOutlineCog } from "react-icons/hi";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-import { LoadGoogleAppsButton } from "@/components/newtab/buttons/LoadGoogleAppsButton"
-import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
-import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton"
-import { DeleteAllAppsButton } from "@/components/newtab/buttons/DeleteAllAppsButton"
-import { SelectDefaultTab } from "@/components/newtab/buttons/SelectDefaultTab"
+import { LoadGoogleAppsButton } from "@/components/buttons/LoadGoogleAppsButton";
+import { ImportAppsButton } from "@/components/buttons/ImportAppsButton";
+import { ExportAppsButton } from "@/components/buttons/ExportAppsButton";
+import { DeleteAllAppsButton } from "@/components/buttons/DeleteAllAppsButton";
+import { SelectDefaultTab } from "@/components/buttons/SelectDefaultTab";
 
 export const SettingsButton: React.FC = () => {
 	return (
@@ -48,5 +48,5 @@ export const SettingsButton: React.FC = () => {
 				</div>
 			</DialogContent>
 		</Dialog>
-	)
-}
+	);
+};

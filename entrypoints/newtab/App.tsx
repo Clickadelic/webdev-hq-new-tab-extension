@@ -1,28 +1,28 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 
-import Logo from "@/components/Logo"
-import BackgroundImage from "@/components/BackgroundImage"
-import { ThemeProvider } from "@/components/ThemeProvider"
-import { AccountDropdown } from "@/components/AccountDropdown"
-import { SidebarSheet } from "@/components/SidebarSheet"
-import { MegaMenu } from "@/components/MegaMenu"
-import { NotificationButton } from "@/components/NotificationButton"
-import { InboxButton } from "@/components/InboxButton"
-import { FullscreenButton } from "@/components/FullscreenButton"
-import { LangSwitch } from "@/components/LangSwitch"
-import { House, Gauge, LayoutGrid, ListTodo, Webhook } from "lucide-react"
-import { NavMain } from "@/components/nav-main"
-import { NavCommunityItems } from "@/components/nav-community-items"
-import { NavUser } from "@/components/nav-user"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar"
-import Clock from "@/components/Clock"
-import SalutationBox from "@/components/SalutationBox"
-import MultiSearch from "@/components/MultiSearch"
+import Logo from "@/components/Logo";
+import BackgroundImage from "@/components/BackgroundImage";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { AccountDropdown } from "@/components/AccountDropdown";
+import { SidebarSheet } from "@/components/SidebarSheet";
+import { MegaMenu } from "@/components/MegaMenu";
+import { NotificationButton } from "@/components/NotificationButton";
+import { InboxButton } from "@/components/InboxButton";
+import { FullscreenButton } from "@/components/FullscreenButton";
+import { LangSwitch } from "@/components/LangSwitch";
+import { House, Gauge, LayoutGrid, ListTodo, Webhook } from "lucide-react";
+import { NavMain } from "@/components/nav-main";
+import { NavCommunityItems } from "@/components/nav-community-items";
+import { NavUser } from "@/components/nav-user";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
+import Clock from "@/components/Clock";
+import SalutationBox from "@/components/SalutationBox";
+import MultiSearch from "@/components/MultiSearch";
 // Pages
-import DashboardPage from "./pages/DashboardPage"
-import AppsPage from "./pages/AppsPage"
-import TodosPage from "./pages/TodosPage"
-import ProjectsPage from "./pages/ProjectsPage"
+import DashboardPage from "./pages/DashboardPage";
+import AppsPage from "./pages/AppsPage";
+import TodosPage from "./pages/TodosPage";
+import ProjectsPage from "./pages/ProjectsPage";
 
 const data = {
 	navMain: [
@@ -54,7 +54,7 @@ const data = {
 		email: "shadcn@vercel.com",
 		avatar: "/avatars/shadcn.jpg"
 	}
-}
+};
 
 const App = () => {
 	return (
@@ -80,9 +80,6 @@ const App = () => {
 					<SidebarInset className="bg-transparent">
 						<header className="App-header sticky top-0 z-50 flex h-15 items-center gap-3 bg-white px-3 dark:bg-neutral-900">
 							<SidebarTrigger className="-ml-1" />
-							<div className="flex flex-1 items-center gap-3">
-								<MultiSearch />
-							</div>
 							<ul className="ml-auto hidden items-center gap-1 md:flex">
 								<li>
 									<MegaMenu />
@@ -109,22 +106,25 @@ const App = () => {
 						</header>
 
 						<section className="flex flex-col items-center justify-center p-4">
-							<div className="w-352">
+							<div className="w-5xl mb-12">
 								<Clock className="items-center justify-center gap-2 font-light mb-3" digitStyle="text-3xl text-shadow-lg" />
-								<SalutationBox className="text-shadow-lg text-3xl items-center justify-center mb-8 mx-auto" />
+								<SalutationBox className="text-shadow-lg text-3xl items-center justify-start mb-8 mx-auto" />
+								<MultiSearch className="w-full" />
 							</div>
-							<Routes>
-								<Route path="/" element={<DashboardPage />} />
-								<Route path="/apps" element={<AppsPage />} />
-								<Route path="/todos" element={<TodosPage />} />
-								<Route path="/projects" element={<ProjectsPage />} />
-							</Routes>
+							<div className="w-5xl relative z-0">
+								<Routes>
+									<Route path="/" element={<DashboardPage />} />
+									<Route path="/apps" element={<AppsPage />} />
+									<Route path="/todos" element={<TodosPage />} />
+									<Route path="/projects" element={<ProjectsPage />} />
+								</Routes>
+							</div>
 						</section>
 					</SidebarInset>
 				</SidebarProvider>
 			</BackgroundImage>
 		</ThemeProvider>
-	)
-}
+	);
+};
 
-export default App
+export default App;

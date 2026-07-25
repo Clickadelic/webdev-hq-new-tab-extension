@@ -1,12 +1,11 @@
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { FaCircleUser } from "react-icons/fa6"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { FaCircleUser } from "react-icons/fa6";
 export const AccountDropdown = () => {
 	return (
 		<DropdownMenu modal={false}>
-			<DropdownMenuTrigger className="flex justify-between p-2 hover:bg-slate-100 rounded-xs">
-				
-				<FaCircleUser className="text-slate-800 size-5" />
-				<span className="ml-2 text-slate-900 hover:text-slate-900">Username</span>
+			<DropdownMenuTrigger className="flex justify-between p-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-100 rounded-xs">
+				<FaCircleUser className="text-slate-800 dark:text-white size-5" />
+				<span className="ml-2 text-slate-800 dark:text-white">Username</span>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="mr-3">
 				<DropdownMenuLabel>Mein Account</DropdownMenuLabel>
@@ -23,9 +22,9 @@ export const AccountDropdown = () => {
 				</DropdownMenuItem>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
-					<a href="/">Logout</a>
+					<a href="/">{chrome.i18n.getMessage("logout", "Logout")}</a>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
-	)
-}
+	);
+};
