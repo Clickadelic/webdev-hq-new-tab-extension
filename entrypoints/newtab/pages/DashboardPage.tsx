@@ -3,12 +3,8 @@ import SalutationBox from "@/components/SalutationBox";
 import MultiSearch from "@/components/MultiSearch";
 import UserApps from "@/components/UserApps";
 
-const AppsPage = () => {
-	return (
-		<div className="w-full">
-			<UserApps />
-		</div>
-	);
+const DashboardPage = () => {
+	return <div>DashboardPage</div>;
 };
 
-export default AppsPage;
+export default DashboardPage;

@@ -9,15 +9,20 @@ import { NotificationButton } from "@/components/NotificationButton";
 import { InboxButton } from "@/components/InboxButton";
 import { FullscreenButton } from "@/components/FullscreenButton";
 import { LangSwitch } from "@/components/LangSwitch";
-import { House, Gauge, LayoutGrid, ListTodo } from "lucide-react";
+import { House, Gauge, LayoutGrid, ListTodo, Webhook } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
 import Logo from "@/components/Logo";
+import DashboardPage from "./pages/DashboardPage";
 import AppsPage from "./pages/AppsPage";
 import TodosPage from "./pages/TodosPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
+import Clock from "@/components/Clock";
+import SalutationBox from "@/components/SalutationBox";
+import MultiSearch from "@/components/MultiSearch";
+import UserApps from "@/components/UserApps";
 
 const data = {
 	navMain: [
@@ -42,7 +47,7 @@ const data = {
 	],
 	communityItems: [
 		{ name: "Website", url: "https://webdev-hq.com", icon: House },
-		{ name: "API", url: "https://api.webdev-hq.com", icon: House }
+		{ name: "API", url: "https://api.webdev-hq.com", icon: Webhook }
 	],
 	user: {
 		name: "shadcn",
@@ -105,9 +110,15 @@ const App = () => {
 							</ul>
 						</header>
 
-						<section className="flex items-center justify-center p-4">
+						<section className="flex flex-col items-center justify-center p-4">
+							<div className="w-352">
+								<Clock className="items-center justify-center gap-2 font-light mb-3" digitStyle="text-3xl text-shadow-lg" />
+								<SalutationBox className="text-shadow-lg text-3xl items-center justify-center mb-8 mx-auto" />
+								<MultiSearch className="mb-5" />
+							</div>
 							<Routes>
-								<Route path="/" element={<AppsPage />} />
+								<Route path="/" element={<DashboardPage />} />
+								<Route path="/apps" element={<AppsPage />} />
 								<Route path="/todos" element={<TodosPage />} />
 								<Route path="/projects" element={<ProjectsPage />} />
 							</Routes>
