@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import BackgroundImage from "@/components/BackgroundImage";
@@ -10,7 +9,7 @@ import { NotificationButton } from "@/components/NotificationButton";
 import { InboxButton } from "@/components/InboxButton";
 import { FullscreenButton } from "@/components/FullscreenButton";
 import { LangSwitch } from "@/components/LangSwitch";
-import { Grip, SquareTerminal } from "lucide-react";
+import { House, Gauge } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
@@ -20,24 +19,24 @@ import TabsModulePage from "./pages/TabsModulePage";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
 
 const data = {
-	user: {
-		name: "shadcn",
-		email: "shadcn@vercel.com",
-		avatar: "/avatars/shadcn.jpg"
-	},
 	navMain: [
 		{
 			title: "Dashboard",
 			url: "/",
-			icon: SquareTerminal,
+			icon: Gauge,
 			isActive: true,
-			items: [
-				{ title: "Overview", url: "/" },
-				{ title: "Tabs",     url: "/tabs" },
-			],
-		},
+			items: [{ title: "Apps", url: "/apps" }]
+		}
 	],
-	communityItems: [{ name: "News", url: "#", icon: Grip }]
+	communityItems: [
+		{ name: "Website", url: "https://webdev-hq.com", icon: House },
+		{ name: "API", url: "https://api.webdev-hq.com", icon: House }
+	],
+	user: {
+		name: "shadcn",
+		email: "shadcn@vercel.com",
+		avatar: "/avatars/shadcn.jpg"
+	}
 };
 
 const App = () => {
@@ -94,12 +93,12 @@ const App = () => {
 							</ul>
 						</header>
 
-						<main className="flex flex-1 flex-col p-4">
-						<Routes>
-							<Route path="/" element={<DashboardPage />} />
-							<Route path="/tabs" element={<TabsModulePage />} />
-						</Routes>
-						</main>
+						<section className="flex items-center justify-center p-4">
+							<Routes>
+								<Route path="/" element={<DashboardPage />} />
+								<Route path="/tabs" element={<TabsModulePage />} />
+							</Routes>
+						</section>
 					</SidebarInset>
 				</SidebarProvider>
 			</BackgroundImage>

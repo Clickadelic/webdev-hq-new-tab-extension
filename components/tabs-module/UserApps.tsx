@@ -139,7 +139,7 @@ const UserApps = () => {
 	return (
 		<DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
 			<SortableContext items={apps.map(app => app.id)} strategy={rectSortingStrategy}>
-				<ul className="w-full grid grid-cols-12 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
+				<ul className="w-full grid grid-cols-19 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
 					{apps.map(app => (
 						<SortableAppTile key={app.id} app={app} onEdit={onEdit} onDelete={onDelete} wasDragged={isEditing} setWasDragged={setIsEditing} />
 					))}

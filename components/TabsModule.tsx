@@ -15,14 +15,14 @@ import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { useSettingsStore } from "@/stores/use-settings-store";
 
 interface TabsModuleProps {
-	classNames?: string;
+	className?: string;
 }
 
-const TabsModule = ({ classNames }: TabsModuleProps) => {
+const TabsModule = ({ className }: TabsModuleProps) => {
 	const defaultTab = useSettingsStore(state => state.defaultTab);
 
 	return (
-		<div className={classNames}>
+		<div className={className}>
 			<Tabs defaultValue={defaultTab} className="w-full">
 				<div className="bg-white/30 dark:bg-slate-800/30 p-1 rounded backdrop-blur">
 					<TabsList className="grid grid-cols-5 w-full text-slate-600 h-11 dark:bg-slate-800 dark:text-slate-300">

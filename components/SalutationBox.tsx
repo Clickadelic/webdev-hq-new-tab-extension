@@ -1,10 +1,8 @@
-import { dailySalutation } from "@/lib/utils"
-import { cn } from "@/lib/utils"
+import { dailySalutation } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
-// import NextAppointment from "./NextAppointment"
-
-interface UserInfoBoxProps {
-	classNames?: string
+interface SalutationBoxProps {
+	className?: string;
 }
 
 /**
@@ -13,13 +11,13 @@ interface UserInfoBoxProps {
  * @param {string} [props.classNames] Additional class names to add to the component
  * @returns {ReactElement} JSX element
  */
-const UserInfoBox = ({ classNames }: UserInfoBoxProps) => {
-	const salutation = dailySalutation()
+const SalutationBox = ({ className }: SalutationBoxProps) => {
+	const salutation = dailySalutation();
 	return (
-		<div className={cn("flex justify-between", classNames)}>
+		<div className={cn("flex justify-between", className)}>
 			<h2 className="text-white text-4xl font-light dark:text-slate-100 text-shadow-lg">{salutation}</h2>
 		</div>
-	)
-}
+	);
+};
 
-export default UserInfoBox
+export default SalutationBox;

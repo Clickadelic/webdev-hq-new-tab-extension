@@ -1,22 +1,15 @@
-import { Link } from "react-router-dom";
-import EntrypointButton from "@/components/EntrypointButton";
-import { Button } from "@/components/ui/button";
+import Clock from "@/components/Clock";
+import SalutationBox from "@/components/SalutationBox";
+import MultiSearch from "@/components/MultiSearch";
+import UserApps from "@/components/tabs-module/UserApps";
 
 const DashboardPage = () => {
 	return (
-		<div className="flex flex-col gap-4 p-4">
-			<h1 className="text-2xl font-semibold text-white drop-shadow">Dashboard</h1>
-
-			<div className="flex flex-wrap gap-3">
-				{/* In-app navigation — uses React Router, stays within the newtab page */}
-				<Button asChild variant="secondary">
-					<Link to="/tabs">Tabs</Link>
-				</Button>
-
-				{/* External entrypoints — opens a new browser tab */}
-				<EntrypointButton path="get-started.html" translationLabel="GetStarted" />
-				<EntrypointButton path="options.html" translationLabel="Options" />
-			</div>
+		<div className="w-full max-w-352">
+			<Clock className="items-center justify-center gap-2 font-light mb-3" digitStyle="text-3xl text-shadow-lg" />
+			<SalutationBox className="text-shadow-lg text-3xl items-center justify-center mb-12 mx-auto" />
+			<MultiSearch className="mb-5" />
+			<UserApps />
 		</div>
 	);
 };
