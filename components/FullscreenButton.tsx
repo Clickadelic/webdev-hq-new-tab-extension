@@ -27,7 +27,7 @@ export const FullscreenButton = () => {
 	}
 
 	return (
-		<Button onClick={requestFullscreen} variant="link" className="hover:bg-slate-100 size-10 p-3 rounded">
+		<Button onClick={requestFullscreen} variant="link" className="hover:bg-slate-100 text-white size-10 p-3 rounded">
 			{isFullscreen ? <AiOutlineFullscreenExit className="size-5" /> : <BsArrowsFullscreen className="size-5" />}
 		</Button>
 	)

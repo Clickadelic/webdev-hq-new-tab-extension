@@ -6,11 +6,11 @@ export const InboxButton = () => {
 	return (
 		<DropdownMenu modal={false}>
 			<DropdownMenuTrigger asChild>
-				<Button variant="link" className="hover:bg-slate-100 size-10 p-3 rounded">
+				<Button variant="link" className="hover:bg-slate-100 text-white size-10 p-3 rounded">
 					<CiMail className="size-5" />
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align="center" className="w-[300px] mt-1 p-3 overflow-hidden bg-white rounded-sm shadow-sm border">
+			<DropdownMenuContent align="center" className="w-75 mt-1 p-3 overflow-hidden bg-white rounded-sm shadow-sm border">
 				<h4 className="flex justify-between font-medium text-md mb-4 p-2">
 					<span>E-Mails</span>
 					<span>1</span>
@@ -24,4 +24,3 @@ export const InboxButton = () => {
 		</DropdownMenu>
 	)
 }
-
