@@ -9,13 +9,14 @@ import { NotificationButton } from "@/components/NotificationButton";
 import { InboxButton } from "@/components/InboxButton";
 import { FullscreenButton } from "@/components/FullscreenButton";
 import { LangSwitch } from "@/components/LangSwitch";
-import { House, Gauge } from "lucide-react";
+import { House, Gauge, LayoutGrid, ListTodo } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
 import Logo from "@/components/Logo";
-import DashboardPage from "./pages/DashboardPage";
-import TabsModulePage from "./pages/TabsModulePage";
+import AppsPage from "./pages/AppsPage";
+import TodosPage from "./pages/TodosPage";
+import ProjectsPage from "./pages/ProjectsPage";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
 
 const data = {
@@ -24,8 +25,19 @@ const data = {
 			title: "Dashboard",
 			url: "/",
 			icon: Gauge,
-			isActive: true,
-			items: [{ title: "Apps", url: "/apps" }]
+			isActive: true
+		},
+		{
+			title: "Apps",
+			url: "/apps",
+			icon: LayoutGrid,
+			isActive: false
+		},
+		{
+			title: "Todos",
+			url: "/todos",
+			icon: ListTodo,
+			isActive: false
 		}
 	],
 	communityItems: [
@@ -95,8 +107,9 @@ const App = () => {
 
 						<section className="flex items-center justify-center p-4">
 							<Routes>
-								<Route path="/" element={<DashboardPage />} />
-								<Route path="/tabs" element={<TabsModulePage />} />
+								<Route path="/" element={<AppsPage />} />
+								<Route path="/todos" element={<TodosPage />} />
+								<Route path="/projects" element={<ProjectsPage />} />
 							</Routes>
 						</section>
 					</SidebarInset>
