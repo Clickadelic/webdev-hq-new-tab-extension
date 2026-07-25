@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
+import Logo from "@/components/Logo";
 import BackgroundImage from "@/components/BackgroundImage";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AccountDropdown } from "@/components/AccountDropdown";
@@ -13,16 +14,15 @@ import { House, Gauge, LayoutGrid, ListTodo, Webhook } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
-import Logo from "@/components/Logo";
-import DashboardPage from "./pages/DashboardPage";
-import AppsPage from "./pages/AppsPage";
-import TodosPage from "./pages/TodosPage";
-import ProjectsPage from "./pages/ProjectsPage";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
 import Clock from "@/components/Clock";
 import SalutationBox from "@/components/SalutationBox";
 import MultiSearch from "@/components/MultiSearch";
-import UserApps from "@/components/UserApps";
+// Pages
+import DashboardPage from "./pages/DashboardPage";
+import AppsPage from "./pages/AppsPage";
+import TodosPage from "./pages/TodosPage";
+import ProjectsPage from "./pages/ProjectsPage";
 
 const data = {
 	navMain: [
