@@ -55,22 +55,6 @@ const App = () => {
 			}
 		};
 	}, []);
-	const injectCSS = () => {
-		if (!chrome?.tabs) {
-			console.error("chrome.tabs is not available.");
-			return;
-		}
-
-		chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-			const activeTab = tabs[0];
-			if (activeTab?.id) {
-				chrome.tabs.sendMessage(activeTab.id, {
-					command: "injectStylesheet",
-					stylesheet: "assets/pesticide.css"
-				});
-			}
-		});
-	};
 
 	return (
 		<ThemeProvider>
@@ -82,10 +66,6 @@ const App = () => {
 							<p className="text-lg text-center text-slate-800 dark:text-slate-200">
 								{dailySalutation()}, {user.username}!
 							</p>
-							<Button variant="primary" onClick={injectCSS}>
-								<AiOutlineBug />
-								{chrome.i18n.getMessage("inject_debug_css", "Inject CSS")}
-							</Button>
 						</div>
 						<Button onClick={handleLogout} variant="secondary" className="w-full">
 							Abmelden

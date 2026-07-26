@@ -1,6 +1,6 @@
 {
 	"console_log_on_installed": {
-		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen: https://webdev-hq.com/",
+		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen und weitere Extensions: https://webdev-hq.com/",
 		"description": "Konsolennachricht nach der Installation."
 	},
 	"good_morning": {
