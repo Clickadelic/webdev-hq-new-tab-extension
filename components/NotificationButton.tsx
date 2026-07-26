@@ -6,8 +6,8 @@ export const NotificationButton = () => {
 	return (
 		<DropdownMenu modal={false}>
 			<DropdownMenuTrigger asChild>
-				<Button variant="blank" className="size-10 p-3 rounded">
-					<IoIosNotificationsOutline className="size-5" />
+				<Button variant="blank">
+					<IoIosNotificationsOutline className="size-6" />
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end" className="w-100 p-3 overflow-hidden bg-white rounded-sm shadow-sm border">

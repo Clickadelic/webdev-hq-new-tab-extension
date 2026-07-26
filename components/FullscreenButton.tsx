@@ -28,7 +28,7 @@ export const FullscreenButton = () => {
 
 	return (
 		<Button onClick={requestFullscreen} variant="blank">
-			{isFullscreen ? <AiOutlineFullscreenExit className="size-5" /> : <BsArrowsFullscreen className="size-5" />}
+			{isFullscreen ? <AiOutlineFullscreenExit className="size-4" /> : <BsArrowsFullscreen className="size-4" />}
 		</Button>
 	);
 };

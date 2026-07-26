@@ -11,8 +11,8 @@ export const SidebarSheetButton = () => {
 	return (
 		<Sheet>
 			<SheetTrigger asChild>
-				<Button variant="ghost" className="size-5">
-					<GoGear className="size-5" />
+				<Button variant="blank">
+					<GoGear className="size-6" />
 				</Button>
 			</SheetTrigger>
 			<SheetContent>

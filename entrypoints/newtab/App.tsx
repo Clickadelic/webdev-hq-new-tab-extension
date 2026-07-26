@@ -85,7 +85,7 @@ const App = () => {
 					<SidebarInset className="bg-transparent">
 						<header className="App-header sticky top-0 z-50 flex h-15 items-center gap-3 bg-white/30 backdrop-blur dark:bg-slate-800/30 px-3">
 							<SidebarTrigger className="-ml-1" />
-							<ul className="ml-auto hidden items-center gap-1 md:flex">
+							<ul className="ml-auto hidden items-center gap-3 md:flex">
 								<li>
 									<NotificationButton />
 								</li>
