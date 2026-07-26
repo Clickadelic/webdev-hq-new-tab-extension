@@ -1,8 +1,6 @@
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { GoGear } from "react-icons/go";
 import { Button } from "@/components/ui/button";
-import { HiOutlineCog } from "react-icons/hi";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ImportAppsButton } from "@/components/buttons/ImportAppsButton";
 import { ExportAppsButton } from "@/components/buttons/ExportAppsButton";
 import { DeleteAllAppsButton } from "@/components/buttons/DeleteAllAppsButton";

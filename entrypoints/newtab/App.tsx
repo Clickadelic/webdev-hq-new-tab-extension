@@ -3,13 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Logo from "@/components/Logo";
 import BackgroundImage from "@/components/BackgroundImage";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { AccountDropdown } from "@/components/AccountDropdown";
 import { SidebarSheet } from "@/components/SidebarSheet";
-import { MegaMenu } from "@/components/MegaMenu";
 import { NotificationButton } from "@/components/NotificationButton";
-import { InboxButton } from "@/components/InboxButton";
 import { FullscreenButton } from "@/components/FullscreenButton";
-import { LangSwitch } from "@/components/LangSwitch";
 import { House, Gauge, LayoutGrid, ListTodo, Webhook, EarthLock } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavCommunityItems } from "@/components/nav-community-items";
@@ -97,9 +93,6 @@ const App = () => {
 								</li>
 								<li>
 									<SidebarSheet />
-								</li>
-								<li>
-									<AccountDropdown />
 								</li>
 							</ul>
 						</header>
