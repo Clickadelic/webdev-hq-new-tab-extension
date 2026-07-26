@@ -10,7 +10,7 @@ import { NotificationButton } from "@/components/NotificationButton";
 import { InboxButton } from "@/components/InboxButton";
 import { FullscreenButton } from "@/components/FullscreenButton";
 import { LangSwitch } from "@/components/LangSwitch";
-import { House, Gauge, LayoutGrid, ListTodo, Webhook } from "lucide-react";
+import { House, Gauge, LayoutGrid, ListTodo, Webhook, EarthLock } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
@@ -42,6 +42,12 @@ const data = {
 			title: "Todos",
 			url: "/todos",
 			icon: ListTodo,
+			isActive: false
+		},
+		{
+			title: "Projects",
+			url: "/projects",
+			icon: EarthLock,
 			isActive: false
 		}
 	],
