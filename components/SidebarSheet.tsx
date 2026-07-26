@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { ImportAppsButton } from "@/components/buttons/ImportAppsButton";
 import { ExportAppsButton } from "@/components/buttons/ExportAppsButton";
 import { DeleteAllAppsButton } from "@/components/buttons/DeleteAllAppsButton";
-import { SelectDefaultTab } from "@/components/buttons/SelectDefaultTab";
 import { LoadGoogleAppsButton } from "./buttons/LoadGoogleAppsButton";
 import { ModeToggle } from "@/components/ModeToggle";
 

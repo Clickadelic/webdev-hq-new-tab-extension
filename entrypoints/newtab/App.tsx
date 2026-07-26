@@ -2,6 +2,10 @@ import { Routes, Route } from "react-router-dom";
 
 import Logo from "@/components/Logo";
 import BackgroundImage from "@/components/BackgroundImage";
+import Clock from "@/components/Clock";
+import SalutationBox from "@/components/DaytimeSalutation";
+import MultiSearch from "@/components/MultiSearch";
+
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SidebarSheetButton } from "@/components/SidebarSheet";
 import { NotificationButton } from "@/components/NotificationButton";
@@ -11,9 +15,6 @@ import { NavMain } from "@/components/nav-main";
 import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
-import Clock from "@/components/Clock";
-import SalutationBox from "@/components/DaytimeSalutation";
-import MultiSearch from "@/components/MultiSearch";
 
 import { Toaster } from "sonner";
 // Pages
