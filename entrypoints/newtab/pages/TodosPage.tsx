@@ -1,4 +1,4 @@
-import UserTodos from "@/components/UserTodos";
+import UserTodos from "@/components/TodoList";
 
 const TodosPage = () => {
 	return <UserTodos />;

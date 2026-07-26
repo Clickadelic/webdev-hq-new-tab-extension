@@ -16,7 +16,7 @@ import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
 import Clock from "@/components/Clock";
-import SalutationBox from "@/components/SalutationBox";
+import SalutationBox from "@/components/DaytimeSalutation";
 import MultiSearch from "@/components/MultiSearch";
 // Pages
 import DashboardPage from "./pages/DashboardPage";

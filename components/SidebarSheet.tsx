@@ -8,6 +8,8 @@ import { ExportAppsButton } from "@/components/buttons/ExportAppsButton";
 import { DeleteAllAppsButton } from "@/components/buttons/DeleteAllAppsButton";
 import { SelectDefaultTab } from "@/components/buttons/SelectDefaultTab";
 import { LoadGoogleAppsButton } from "./buttons/LoadGoogleAppsButton";
+import { ModeToggle } from "@/components/ModeToggle";
+
 export const SidebarSheet = () => {
 	return (
 		<Sheet>
@@ -41,6 +43,10 @@ export const SidebarSheet = () => {
 					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("delete_all_apps_settings_text", "Delete all apps.")}</p>
 						<DeleteAllAppsButton />
+					</div>
+					<div className="flex justify-between gap-2">
+						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("delete_all_apps_settings_text", "Delete all apps.")}</p>
+						<ModeToggle />
 					</div>
 				</div>
 			</SheetContent>

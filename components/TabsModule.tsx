@@ -2,9 +2,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import UserApps from "@/components/UserApps";
 import UserHistory from "@/components/UserHistory";
-import UserTodos from "@/components/UserTodos";
+import UserTodos from "@/components/TodoList";
 import UserDownloads from "@/components/UserDownloads";
-import UserProjects from "@/components/UserProjects";
+import UserProjects from "@/components/ProjectGrid";
 
 import { BsApp } from "react-icons/bs";
 import { BsListCheck } from "react-icons/bs";

@@ -24,7 +24,7 @@ import { TbEdit } from "react-icons/tb";
 import { BsListCheck } from "react-icons/bs";
 import { DatePickerButton } from "@/components/DatepickerButton";
 
-const UserTodos = () => {
+const TodoList = () => {
 	const { todos, addTodo, toggleTodo, deleteTodo } = useTodoStore();
 
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -171,4 +171,4 @@ const UserTodos = () => {
 	);
 };
 
-export default UserTodos;
+export default TodoList;

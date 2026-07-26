@@ -1,7 +1,7 @@
 import { dailySalutation } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
-interface SalutationBoxProps {
+interface DaytimeSalutationProps {
 	className?: string;
 }
 
@@ -11,7 +11,7 @@ interface SalutationBoxProps {
  * @param {string} [props.classNames] Additional class names to add to the component
  * @returns {ReactElement} JSX element
  */
-const SalutationBox = ({ className }: SalutationBoxProps) => {
+const DaytimeSalutation = ({ className }: DaytimeSalutationProps) => {
 	const salutation = dailySalutation();
 	return (
 		<div className={cn("flex justify-between", className)}>
@@ -20,4 +20,4 @@ const SalutationBox = ({ className }: SalutationBoxProps) => {
 	);
 };
 
-export default SalutationBox;
+export default DaytimeSalutation;

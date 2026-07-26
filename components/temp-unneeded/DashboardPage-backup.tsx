@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import EntrypointButton from "@/components/EntrypointButton";
+import EntrypointButton from "@/components/temp-unneeded/EntrypointButton";
 import { Button } from "@/components/ui/button";
 
 const DashboardPage = () => {
