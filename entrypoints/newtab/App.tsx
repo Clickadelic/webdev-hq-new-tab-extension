@@ -84,7 +84,7 @@ const App = () => {
 
 					{/* Main content — SidebarInset fills the remaining width automatically */}
 					<SidebarInset className="bg-transparent">
-						<header className="App-header sticky top-0 z-50 flex h-15 items-center gap-3 bg-background px-3 border-b border-border">
+						<header className="App-header sticky top-0 z-50 flex h-15 items-center gap-3 bg-white/30 backdrop-blur dark:bg-slate-800/30 px-3">
 							<SidebarTrigger className="-ml-1" />
 							<ul className="ml-auto hidden items-center gap-1 md:flex">
 								<li>
