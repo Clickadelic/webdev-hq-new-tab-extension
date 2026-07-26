@@ -399,13 +399,17 @@
 		"message": "Default modules",
 		"description": "Default modules text."
 	},
+	"timer": {
+		"message": "Stoppuhr",
+		"description": "Stoppuhr Button."
+	},
 	"start": {
 		"message": "Start",
 		"description": "Stoppuhr starten."
 	},
-	"stop": {
-		"message": "Stop",
-		"description": "Stoppuhr starten."
+	"pause": {
+		"message": "Pause",
+		"description": "Stoppuhr pausieren."
 	},
 	"reset": {
 		"message": "zurücksetzen",

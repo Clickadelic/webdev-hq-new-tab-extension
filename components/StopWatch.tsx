@@ -2,7 +2,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { LuClock } from "react-icons/lu";
 import { RiResetLeftLine } from "react-icons/ri";
-import { FaPlay } from "react-icons/fa6";
+import { FaPlay, FaPause } from "react-icons/fa6";
 interface StopWatchProps {
 	className?: string;
 }
@@ -56,23 +56,36 @@ export default function StopWatch({ className }: StopWatchProps) {
 
 	return (
 		<div className={cn("w-64 bg-white/30 dark:bg-slate-800/30 flex flex-col items-center justify-center gap-2 p-1 rounded", className)}>
-			<div className="w-full bg-white dark:bg-slate-800 rounded p-3 flex flex-col gap-5">
+			<div className="w-full bg-white dark:bg-slate-800 rounded p-3 flex flex-col gap-2">
 				<h2 className="text-lg flex gap-2 justify-center items-center">
 					<LuClock />
-					Stopwatch
+					{chrome.i18n.getMessage("timer", "Timer")}
 				</h2>
 				<h2 className="text-center text-lg">{`${time.hr < 10 ? 0 : ""}${time.hr} : ${time.min < 10 ? 0 : ""}${time.min} : ${time.sec < 10 ? 0 : ""}${time.sec}`}</h2>
-				<button onClick={pauseOrResume}>
+				<button
+					onClick={pauseOrResume}
+					className="flex items-center justify-center text-center hover:cursor-pointer"
+					title={chrome.i18n.getMessage("start", "Start")}
+					aria-label={chrome.i18n.getMessage("start", "Start")}
+				>
 					{intervalId ? (
-						chrome.i18n.getMessage("stop", "Stop")
+						<div className="flex mx-auto gap-2">
+							<FaPause className="mt-0.5" />
+							{chrome.i18n.getMessage("pause", "Pause")}
+						</div>
 					) : (
-						<div className="flex gap-2">
+						<div className="flex mx-auto gap-2">
 							<FaPlay className="mt-0.5" />
 							{chrome.i18n.getMessage("start", "Start")}
 						</div>
 					)}
 				</button>
-				<button className="flex gap-2 items-center justify-center" onClick={reset}>
+				<button
+					className="flex gap-2 items-center justify-center hover:cursor-pointer hover:dark:text-slate-300"
+					onClick={reset}
+					title={chrome.i18n.getMessage("reset", "Reset")}
+					aria-label={chrome.i18n.getMessage("reset", "Reset")}
+				>
 					<RiResetLeftLine />
 					{chrome.i18n.getMessage("reset", "Reset")}
 				</button>

@@ -378,5 +378,21 @@
 	"default_modules": {
 		"message": "Default modules",
 		"description": "Default modules text."
+	},
+	"timer": {
+		"message": "Stopwatch",
+		"description": "Stopwatch Button."
+	},
+	"start": {
+		"message": "Start",
+		"description": "Start stopwatch."
+	},
+	"pause": {
+		"message": "Pause",
+		"description": "Pause stopwatch."
+	},
+	"reset": {
+		"message": "Reset",
+		"description": "Reset stopwatch."
 	}
 }
