@@ -90,16 +90,7 @@ const App = () => {
 							<SidebarTrigger className="-ml-1" />
 							<ul className="ml-auto hidden items-center gap-1 md:flex">
 								<li>
-									<MegaMenu />
-								</li>
-								<li>
-									<LangSwitch />
-								</li>
-								<li>
 									<NotificationButton />
-								</li>
-								<li>
-									<InboxButton />
 								</li>
 								<li>
 									<FullscreenButton />
