@@ -1,33 +1,133 @@
-import AppIcon from "@/components/global/AppIcon";
-import BackgroundImage from "@/components/global/BackgroundImage";
-import ButtonBar from "@/components/newtab/ButtonBar";
-import CircularMenu from "@/components/global/CircularMenu";
-import Clock from "@/components/newtab/Clock";
+import { Routes, Route } from "react-router-dom";
 
-import UserInfoBox from "@/components/newtab/UserInfoBox";
-import MultiSearch from "@/components/newtab/MultiSearch";
-import TabsModule from "@/components/newtab/TabsModule";
-// import EntrypointButton from "@/components/global/EntrypointButton"
+import Logo from "@/components/Logo";
+import BackgroundImage from "@/components/BackgroundImage";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { AccountDropdown } from "@/components/AccountDropdown";
+import { SidebarSheet } from "@/components/SidebarSheet";
+import { MegaMenu } from "@/components/MegaMenu";
+import { NotificationButton } from "@/components/NotificationButton";
+import { InboxButton } from "@/components/InboxButton";
+import { FullscreenButton } from "@/components/FullscreenButton";
+import { LangSwitch } from "@/components/LangSwitch";
+import { House, Gauge, LayoutGrid, ListTodo, Webhook, EarthLock } from "lucide-react";
+import { NavMain } from "@/components/nav-main";
+import { NavCommunityItems } from "@/components/nav-community-items";
+import { NavUser } from "@/components/nav-user";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
+import Clock from "@/components/Clock";
+import SalutationBox from "@/components/SalutationBox";
+import MultiSearch from "@/components/MultiSearch";
+// Pages
+import DashboardPage from "./pages/DashboardPage";
+import AppsPage from "./pages/AppsPage";
+import TodosPage from "./pages/TodosPage";
+import ProjectsPage from "./pages/ProjectsPage";
 
-import { ThemeProvider } from "@/components/global/ThemeProvider";
-import { Toaster } from "@/components/ui/sonner";
+const data = {
+	navMain: [
+		{
+			title: "Dashboard",
+			url: "/",
+			icon: Gauge,
+			isActive: true
+		},
+		{
+			title: "Apps",
+			url: "/apps",
+			icon: LayoutGrid,
+			isActive: false
+		},
+		{
+			title: "Todos",
+			url: "/todos",
+			icon: ListTodo,
+			isActive: false
+		},
+		{
+			title: "Projects",
+			url: "/projects",
+			icon: EarthLock,
+			isActive: false
+		}
+	],
+	communityItems: [
+		{ name: "Website", url: "https://webdev-hq.com", icon: House },
+		{ name: "API", url: "https://api.webdev-hq.com", icon: Webhook }
+	],
+	user: {
+		name: "shadcn",
+		email: "shadcn@vercel.com",
+		avatar: "/avatars/shadcn.jpg"
+	}
+};
 
 const App = () => {
 	return (
 		<ThemeProvider>
-			<BackgroundImage classNames="relative min-h-screen bg-neutral-100 dark:bg-neutral-900">
-				<div className="flex justify-between gap-1 p-1">
-					<AppIcon url={import.meta.env.WXT_HOMEPAGE_URL} classNames="flex justify-center items-center size-[64px]" />
-					<Clock classNames="text-white mt-2 font-light text-shadow-lg text-3xl space-x-2" />
-					<h2>Username</h2>
-				</div>
-				<UserInfoBox classNames="w-full max-w-[890px] mt-12 mx-auto md:mt-20 xl:mt-24 mb-3 flex justify-between gap-1 p-1 pr-4" />
-				<MultiSearch classNames="w-full max-w-[890px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-800/30" />
-				<TabsModule classNames="w-full max-w-[890px] mx-auto flex flex-row" />
-				<ButtonBar classNames="w-[227px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-neutral-800/30 rounded backdrop-blur" />
-				{/* <HardwareGrid className="w-96 absolute bottom-24 left-4 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-neutral-800/30 rounded backdrop-blur" /> */}
-				<CircularMenu />
-				<Toaster className="dark:bg-neutral-800" />
+			<BackgroundImage creditsPosition="center">
+				<SidebarProvider defaultOpen={false}>
+					{/* Sidebar */}
+					<Sidebar collapsible="icon">
+						<SidebarHeader className="flex items-center justify-center p-0">
+							<Logo url={`${import.meta.env.WXT_HOMEPAGE_URL}`} />
+						</SidebarHeader>
+						<SidebarContent className="pt-8">
+							<NavMain items={data.navMain} />
+							<NavCommunityItems communityItems={data.communityItems} />
+						</SidebarContent>
+						<SidebarFooter>
+							<NavUser user={data.user} />
+						</SidebarFooter>
+						<SidebarRail />
+					</Sidebar>
+
+					{/* Main content — SidebarInset fills the remaining width automatically */}
+					<SidebarInset className="bg-transparent">
+						<header className="App-header sticky top-0 z-50 flex h-15 items-center gap-3 bg-background px-3 border-b border-border">
+							<SidebarTrigger className="-ml-1" />
+							<ul className="ml-auto hidden items-center gap-1 md:flex">
+								<li>
+									<MegaMenu />
+								</li>
+								<li>
+									<LangSwitch />
+								</li>
+								<li>
+									<NotificationButton />
+								</li>
+								<li>
+									<InboxButton />
+								</li>
+								<li>
+									<FullscreenButton />
+								</li>
+								<li>
+									<SidebarSheet />
+								</li>
+								<li>
+									<AccountDropdown />
+								</li>
+							</ul>
+						</header>
+
+						<section className="flex flex-col items-center justify-center p-4">
+							<div className="w-5xl mb-12">
+								<Clock className="items-center justify-center gap-2 font-light mb-3" digitStyle="text-3xl text-shadow-lg" />
+								<SalutationBox className="text-shadow-lg text-3xl items-center justify-start mb-8 mx-auto" />
+								<MultiSearch className="w-full" />
+							</div>
+							<div className="w-5xl relative z-0">
+								<Routes>
+									<Route path="/" element={<DashboardPage />} />
+									<Route path="/apps" element={<AppsPage />} />
+									<Route path="/todos" element={<TodosPage />} />
+									<Route path="/projects" element={<ProjectsPage />} />
+								</Routes>
+							</div>
+						</section>
+					</SidebarInset>
+				</SidebarProvider>
 			</BackgroundImage>
 		</ThemeProvider>
 	);

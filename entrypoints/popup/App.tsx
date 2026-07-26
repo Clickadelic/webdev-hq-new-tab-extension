@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { AiOutlineBug } from "react-icons/ai";
 import { JwtPayload, decodeJwt, handleLogout } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import Logo from "@/components/global/Logo";
+import Logo from "@/components/Logo";
 import LoginForm from "@/components/global/forms/login-form";
-import { ThemeProvider } from "@/components/global/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { dailySalutation } from "@/lib/utils";
 const App = () => {
 	const [user, setUser] = useState<JwtPayload | null>(null);

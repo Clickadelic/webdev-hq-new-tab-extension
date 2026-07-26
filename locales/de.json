@@ -287,6 +287,10 @@
 		"message": "Einstellungen",
 		"description": "Einstellungen Tab."
 	},
+	"make_adjustments": {
+		"message": "Pass Deinen neuen Tab an.",
+		"description": "Einstellungen Tätigen."
+	},
 	"search_placeholder": {
 		"message": "Suche",
 		"description": "Suchfeld Placeholder-Text."
@@ -467,8 +471,8 @@
 		"message": "Dein Konto",
 		"description": "Dein account text."
 	},
-	"inject_debug_css": {
-		"message": "Debug CSS",
+	"enable_disable_debug_css": {
+		"message": "Debug CSS aktivieren/deaktivieren",
 		"description": "Inject debug CSS text."
 	}
 }

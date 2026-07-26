@@ -1,21 +1,42 @@
 export default defineBackground(() => {
+	function getMenuTitle(messageName: string, fallback: string): string {
+		return chrome.i18n.getMessage(messageName, fallback) || fallback;
+	}
+
+	function registerContextMenus() {
+		chrome.contextMenus.removeAll(() => {
+			chrome.contextMenus.create({
+				id: "webdev-hq-inject-css",
+				title: getMenuTitle("enable_disable_debug_css", "Enable/Disable Debug CSS"),
+				type: "normal",
+				contexts: ["selection", "page"]
+			});
+
+			chrome.contextMenus.create({
+				id: "webdev-hq-save-webpage",
+				title: getMenuTitle("save_webpage_to_headquarter", "Save webpage to WebDev HQ"),
+				type: "normal",
+				contexts: ["selection", "page"]
+			});
+		});
+	}
+
 	// ==========================================
-	// 1. ZENTRALES INSTALL-EVENT
+	// 1. ZENTRALES INSTALL- / START-EVENT
 	// ==========================================
 	chrome.runtime.onInstalled.addListener(() => {
 		console.log(chrome.i18n.getMessage("console_log_on_installed", "WebDev HQ Chrome-Extension installed."));
 
 		// Seasonal-Image Daten laden
 		fetchSeasonalImage().catch(console.error);
-
-		// Kontextmenü erstellen
-		chrome.contextMenus.create({
-			id: "webdev-hq-inject-css",
-			title: "Debug CSS",
-			type: "normal",
-			contexts: ["selection", "page"]
-		});
+		registerContextMenus();
 	});
+
+	chrome.runtime.onStartup.addListener(() => {
+		registerContextMenus();
+	});
+
+	registerContextMenus();
 
 	// ==========================================
 	// 2. HELPER & STORAGE LOGIK
@@ -53,7 +74,8 @@ export default defineBackground(() => {
 			if (data.seasonalImageResponse && data.lastFetchedDate === today) {
 				return data.seasonalImageResponse;
 			} else {
-				const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/unsplash/image/seasonal`);
+				const apiVersion = import.meta.env.WXT_API_VERSION ?? "v1";
+				const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/${apiVersion}/unsplash/image/seasonal`);
 				const json = await res.json();
 
 				if (!json?.data?.urls) {
@@ -105,6 +127,15 @@ export default defineBackground(() => {
 			});
 		}
 	});
+	chrome.contextMenus.onClicked.addListener((info, tab) => {
+		if (info.menuItemId === "webdev-hq-save-webpage" && tab?.id) {
+			// Wir senden jetzt "saveWebpage"
+			chrome.tabs.sendMessage(tab.id, {
+				command: "saveWebpageToHeadquarter",
+				stylesheet: "assets/pesticide.css"
+			});
+		}
+	});
 
 	// ==========================================
 	// 5. EXTENSION ICON (ACTION BUTTON) KLICK
@@ -120,6 +151,12 @@ export default defineBackground(() => {
 		// Auch hier senden wir jetzt den Toggle-Befehl
 		chrome.tabs.sendMessage(tab.id, {
 			command: "toggleStylesheet",
+			stylesheet: "assets/pesticide.css"
+		});
+
+		// Auch hier senden wir jetzt den Save-Befehl
+		chrome.tabs.sendMessage(tab.id, {
+			command: "saveWebpageToHeadquarter",
 			stylesheet: "assets/pesticide.css"
 		});
 	});
@@ -142,6 +179,56 @@ export default defineBackground(() => {
 
 		if (message.action === "getHistory") {
 			getHistory().then(history => sendResponse({ history }));
+			return true;
+		}
+
+		if (message.action === "saveWebpageToHeadquarter") {
+			const apiVersion = message.apiVersion || import.meta.env.WXT_API_VERSION || "v1";
+			const payload = message.payload;
+
+			// Read auth token from storage
+			chrome.storage.local.get(["authToken"], async items => {
+				const token = items.authToken as string | undefined;
+				if (!token) {
+					// Prompt user to login: try to open the extension popup, otherwise open the web login page
+					try {
+						if (chrome.action && (chrome.action as any).openPopup) {
+							(chrome.action as any).openPopup();
+						} else {
+							chrome.tabs.create({ url: `${import.meta.env.WXT_HOMEPAGE_URL}/login` });
+						}
+					} catch (e) {
+						try {
+							chrome.tabs.create({ url: `${import.meta.env.WXT_HOMEPAGE_URL}/login` });
+						} catch (_) {}
+					}
+
+					sendResponse({ success: false, error: "No auth token available" });
+					return;
+				}
+
+				try {
+					const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/${apiVersion}/hyperlinks`, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Accept": "application/json",
+							"Authorization": `Bearer ${token}`
+						},
+						body: JSON.stringify(payload)
+					});
+
+					const data = await res.json().catch(() => null);
+					if (!res.ok) {
+						sendResponse({ success: false, error: data?.message || "Unable to save this page to WebDev HQ." });
+						return;
+					}
+					sendResponse({ success: true, data });
+				} catch (err: any) {
+					sendResponse({ success: false, error: err.message || String(err) });
+				}
+			});
+
 			return true;
 		}
 	});

@@ -267,6 +267,10 @@
 		"message": "Settings",
 		"description": "Settings Tab."
 	},
+	"make_adjustments": {
+		"message": "Make adjustments to your tabs.",
+		"description": "Settings Tab."
+	},
 	"search_placeholder": {
 		"message": "Search",
 		"description": "Search placeholder text."
@@ -447,8 +451,8 @@
 		"message": "Your Account",
 		"description": "Your Account text."
 	},
-	"inject_debug_css": {
-		"message": "Debug CSS",
+	"enable_disable_debug_css": {
+		"message": "activate/deactivate debug CSS",
 		"description": "Inject debug CSS text."
 	}
 }
