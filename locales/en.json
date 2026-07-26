@@ -374,5 +374,9 @@
 	"light_or_darkmode": {
 		"message": "Light or dark mode",
 		"description": "Light or dark mode text."
+	},
+	"default_modules": {
+		"message": "Default modules",
+		"description": "Default modules text."
 	}
 }

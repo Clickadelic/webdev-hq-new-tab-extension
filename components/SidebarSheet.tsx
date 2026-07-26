@@ -6,6 +6,7 @@ import { ExportAppsButton } from "@/components/buttons/ExportAppsButton";
 import { DeleteAllAppsButton } from "@/components/buttons/DeleteAllAppsButton";
 import { LoadGoogleAppsButton } from "./buttons/LoadGoogleAppsButton";
 import { ModeToggle } from "@/components/ModeToggle";
+import { PageToggle } from "@/components/PageToggle";
 
 export const SidebarSheetButton = () => {
 	return (
@@ -21,6 +22,10 @@ export const SidebarSheetButton = () => {
 					<SheetDescription>{chrome.i18n.getMessage("make_adjustments", "Make adjustments to your NewTab")}.</SheetDescription>
 				</SheetHeader>
 				<div className="flex flex-col gap-3 p-3">
+					<div className="flex justify-between items-start gap-2">
+						<PageToggle className="w-full" />
+						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("default_module", "Select your preferred default module.")}</p>
+					</div>
 					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("load_google_apps_settings_text", "Load Google Apps as default set.")}</p>
 						<LoadGoogleAppsButton />

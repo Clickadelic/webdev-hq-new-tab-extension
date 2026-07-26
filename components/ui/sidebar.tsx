@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { VariantProps, cva } from "class-variance-authority";
-import { ListIndentIncrease, ListIndentDecrease } from "lucide-react";
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -13,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { BsTextIndentLeft, BsTextIndentRight } from "react-icons/bs";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -234,16 +234,16 @@ function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<t
 		<Button
 			data-sidebar="trigger"
 			data-slot="sidebar-trigger"
-			variant="ghost"
+			variant="blank"
 			size="icon"
-			className={cn("size-7", className)}
+			className={cn("size-7 p-4", className)}
 			onClick={event => {
 				onClick?.(event);
 				toggleSidebar();
 			}}
 			{...props}
 		>
-			{state === "collapsed" ? <ListIndentIncrease className="size-4" /> : <ListIndentDecrease className="size-4" />}
+			{state === "collapsed" ? <BsTextIndentLeft className="size-5" /> : <BsTextIndentRight className="size-5" />}
 			<span className="sr-only">Toggle Sidebar</span>
 		</Button>
 	);

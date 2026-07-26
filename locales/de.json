@@ -394,5 +394,9 @@
 	"light_or_darkmode": {
 		"message": "Light or Darkmode",
 		"description": "Light or Darkmode Button."
+	},
+	"default_modules": {
+		"message": "Default modules",
+		"description": "Default modules text."
 	}
 }
