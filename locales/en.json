@@ -235,34 +235,6 @@
 		"message": "Repository-Url",
 		"description": "Git-Url Text"
 	},
-	"tabs": {
-		"message": "Tabs",
-		"description": "Tabs Tab."
-	},
-	"history": {
-		"message": "History",
-		"description": "History Tab."
-	},
-	"delete_history": {
-		"message": "Delete history",
-		"description": "Delete history button."
-	},
-	"no_history_found": {
-		"message": "No history found.",
-		"description": "No history message."
-	},
-	"downloads": {
-		"message": "Downloads",
-		"description": "Downloads Tab."
-	},
-	"no_downloads_found": {
-		"message": "No downloads found.",
-		"description": "No downloads message."
-	},
-	"popular_sites": {
-		"message": "Popular Sites",
-		"description": "Popular Sites Tab."
-	},
 	"settings": {
 		"message": "Settings",
 		"description": "Settings Tab."

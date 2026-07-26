@@ -18,6 +18,8 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, Si
 import Clock from "@/components/Clock";
 import SalutationBox from "@/components/DaytimeSalutation";
 import MultiSearch from "@/components/MultiSearch";
+
+import { Toaster } from "sonner";
 // Pages
 import DashboardPage from "./pages/DashboardPage";
 import AppsPage from "./pages/AppsPage";
@@ -126,6 +128,7 @@ const App = () => {
 								</Routes>
 							</div>
 						</section>
+						<Toaster />
 					</SidebarInset>
 				</SidebarProvider>
 			</BackgroundImage>

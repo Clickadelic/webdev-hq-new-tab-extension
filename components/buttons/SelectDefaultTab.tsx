@@ -25,8 +25,6 @@ export const SelectDefaultTab = () => {
 				<SelectItem value="apps">{chrome.i18n.getMessage("apps", "Apps")}</SelectItem>
 				<SelectItem value="todos">{chrome.i18n.getMessage("todos", "Todos")}</SelectItem>
 				<SelectItem value="projects">{chrome.i18n.getMessage("projects", "Projects")}</SelectItem>
-				<SelectItem value="downloads">{chrome.i18n.getMessage("downloads", "Downloads")}</SelectItem>
-				<SelectItem value="history">{chrome.i18n.getMessage("history", "History")}</SelectItem>
 			</SelectContent>
 		</Select>
 	);
