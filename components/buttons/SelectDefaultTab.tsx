@@ -1,20 +1,20 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useSettingsStore } from "@/stores/use-settings-store"
-import { toast } from "sonner"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useSettingsStore } from "@/stores/use-settings-store";
+import { toast } from "sonner";
 
 export const SelectDefaultTab = () => {
-	const defaultTab = useSettingsStore(state => state.defaultTab)
-	const setDefaultTab = useSettingsStore(state => state.setDefaultTab)
+	const defaultTab = useSettingsStore(state => state.defaultTab);
+	const setDefaultTab = useSettingsStore(state => state.setDefaultTab);
 
 	const handleValueChange = (value: string) => {
 		try {
-			setDefaultTab(value)
-			toast.success(chrome.i18n.getMessage("default_tab_changed", "Default tab changed successfully!"))
+			setDefaultTab(value);
+			toast.success(chrome.i18n.getMessage("default_tab_changed", "Default tab changed successfully!"));
 		} catch (error) {
-			toast.error(chrome.i18n.getMessage("default_tab_change_error", "Error changing default tab."))
-			console.error("Error changing default tab:", error)
+			toast.error(chrome.i18n.getMessage("default_tab_change_error", "Error changing default tab."));
+			console.error("Error changing default tab:", error);
 		}
-	}
+	};
 
 	return (
 		<Select value={defaultTab} onValueChange={handleValueChange}>
@@ -29,5 +29,5 @@ export const SelectDefaultTab = () => {
 				<SelectItem value="history">{chrome.i18n.getMessage("history", "History")}</SelectItem>
 			</SelectContent>
 		</Select>
-	)
-}
+	);
+};

@@ -8,7 +8,7 @@ export const AccountDropdown = () => {
 				<span className="ml-2 text-slate-800 dark:text-white">Username</span>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="mr-3">
-				<DropdownMenuLabel>Mein Account</DropdownMenuLabel>
+				<DropdownMenuLabel>{chrome.i18n.getMessage("my_account", "My Account")}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
 					<a href="/mein-profil" title="Zum Profil">

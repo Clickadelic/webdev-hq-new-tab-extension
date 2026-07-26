@@ -267,6 +267,10 @@
 		"message": "Settings",
 		"description": "Settings Tab."
 	},
+	"make_adjustments": {
+		"message": "Make adjustments to your tabs.",
+		"description": "Settings Tab."
+	},
 	"search_placeholder": {
 		"message": "Search",
 		"description": "Search placeholder text."
