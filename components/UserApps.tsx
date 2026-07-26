@@ -41,7 +41,7 @@ const UserApps = () => {
 	const sensors = useSensors(
 		useSensor(PointerSensor, {
 			activationConstraint: {
-				distance: 8 // minimale Bewegung zum Starten von Drag (z.B. um Klick vs. Drag zu unterscheiden)
+				distance: 8 // Minimal movement to start the drag process and to determine click or drag
 			}
 		})
 	);
