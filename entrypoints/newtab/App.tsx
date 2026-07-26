@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Logo from "@/components/Logo";
 import BackgroundImage from "@/components/BackgroundImage";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { SidebarSheet } from "@/components/SidebarSheet";
+import { SidebarSheetButton } from "@/components/SidebarSheet";
 import { NotificationButton } from "@/components/NotificationButton";
 import { FullscreenButton } from "@/components/FullscreenButton";
 import { House, Gauge, LayoutGrid, ListTodo, Webhook, EarthLock } from "lucide-react";
@@ -92,7 +92,7 @@ const App = () => {
 									<FullscreenButton />
 								</li>
 								<li>
-									<SidebarSheet />
+									<SidebarSheetButton />
 								</li>
 							</ul>
 						</header>

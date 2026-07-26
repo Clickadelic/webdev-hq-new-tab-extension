@@ -8,11 +8,11 @@ import { SelectDefaultTab } from "@/components/buttons/SelectDefaultTab";
 import { LoadGoogleAppsButton } from "./buttons/LoadGoogleAppsButton";
 import { ModeToggle } from "@/components/ModeToggle";
 
-export const SidebarSheet = () => {
+export const SidebarSheetButton = () => {
 	return (
 		<Sheet>
 			<SheetTrigger asChild>
-				<Button variant="ghost" className="rounded-xs hover:bg-slate-100 size-10">
+				<Button variant="ghost" className="size-5">
 					<GoGear className="size-5" />
 				</Button>
 			</SheetTrigger>
@@ -21,11 +21,7 @@ export const SidebarSheet = () => {
 					<SheetTitle>{chrome.i18n.getMessage("settings", "Settings")}</SheetTitle>
 					<SheetDescription>{chrome.i18n.getMessage("make_adjustments", "Make adjustments to your NewTab")}.</SheetDescription>
 				</SheetHeader>
-				<div className="p-3">
-					<div>
-						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("general_default_tab_settings_text", "Select your default tab.")}</p>
-						<SelectDefaultTab />
-					</div>
+				<div className="flex flex-col gap-3 p-3">
 					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("load_google_apps_settings_text", "Load Google Apps as default set.")}</p>
 						<LoadGoogleAppsButton />
