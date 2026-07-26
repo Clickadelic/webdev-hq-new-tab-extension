@@ -84,11 +84,11 @@ export default defineBackground(() => {
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		console.log("Background received message:", message);
 
-		if (message.action === "getRandomImage") {
+		if (message.action === "getBackgroundImage") {
 			fetchBackgroundImage()
 				.then(response => sendResponse(response))
 				.catch(error => {
-					console.error("Error in fetchSeasonalImage:", error);
+					console.error("Error in fetchBackgroundImage:", error);
 					sendResponse({ error: "fetch_failed" });
 				});
 			return true;
