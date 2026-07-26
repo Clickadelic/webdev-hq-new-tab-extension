@@ -30,26 +30,9 @@ export default defineConfig({
 			"system.memory",
 			"system.storage"
 		],
-		side_panel: {
-			default_path: "popup.html"
-		},
-		content_scripts: [
-			{
-				css: ["content-scripts/content.css"],
-				js: ["content-scripts/content.js"],
-				matches: ["*://*/*"]
-			}
-		],
-		// host_permissions: ["<all_urls>"],
 		host_permissions: ["https://webdev-hq.com/*"],
 		background: {
 			service_worker: "background.js"
-		},
-		web_accessible_resources: [
-			{
-				resources: ["assets/pesticide.css"],
-				matches: ["<all_urls>"]
-			}
-		]
+		}
 	}
 });
