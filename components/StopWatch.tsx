@@ -56,7 +56,7 @@ export default function StopWatch({ className }: StopWatchProps) {
 
 	return (
 		<div className={cn("w-64 bg-white/30 dark:bg-slate-800/30 flex flex-col items-center justify-center gap-2 p-1 rounded", className)}>
-			<div className="w-full bg-white dark:bg-slate-800 rounded p-3 flex flex-col gap-2">
+			<div className="w-full bg-white dark:bg-slate-800 rounded p-3 flex flex-col gap-2 text-slate-800 dark:text-white">
 				<h2 className="text-lg flex gap-2 justify-center items-center">
 					<LuClock />
 					{chrome.i18n.getMessage("timer", "Timer")}
@@ -81,7 +81,7 @@ export default function StopWatch({ className }: StopWatchProps) {
 					)}
 				</button>
 				<button
-					className="flex gap-2 items-center justify-center hover:cursor-pointer hover:dark:text-slate-300"
+					className="flex gap-2 items-center justify-center hover:cursor-pointer"
 					onClick={reset}
 					title={chrome.i18n.getMessage("reset", "Reset")}
 					aria-label={chrome.i18n.getMessage("reset", "Reset")}
