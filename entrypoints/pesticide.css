@@ -1,0 +1,66 @@
+* {
+	background-color: rgba(255, 0, 0, 0.175);
+}
+* * {
+	background-color: rgba(0, 255, 0, 0.175);
+}
+* * * {
+	background-color: rgba(0, 0, 255, 0.175);
+}
+* * * * {
+	background-color: rgba(255, 0, 255, 0.175);
+}
+* * * * * {
+	background-color: rgba(0, 255, 255, 0.175);
+}
+* * * * * * {
+	background-color: rgba(255, 255, 0, 0.175);
+}
+* * * * * * * {
+	background-color: rgba(255, 0, 0, 0.175);
+}
+* * * * * * * * {
+	background-color: rgba(0, 255, 0, 0.175);
+}
+* * * * * * * * * {
+	background-color: rgba(0, 0, 255, 0.175);
+}
+* {
+	outline: 1px solid #2980b9 !important;
+}
+* * {
+	outline: 1px solid #3498db !important;
+}
+* * * {
+	outline: 1px solid #9b59b6 !important;
+}
+* * * * {
+	outline: 1px solid #2ecc71 !important;
+}
+* * * * * {
+	outline: 1px solid #1abc9c !important;
+}
+* * * * * * {
+	outline: 1px solid #34495e !important;
+}
+* * * * * * * {
+	outline: 1px solid #f1c40f !important;
+}
+* * * * * * * * {
+	outline: 1px solid #e74c3c !important;
+}
+* * * * * * * * * {
+	outline: 1px solid #95a5a6 !important;
+}
+* * * * * * * * * * {
+	outline: 1px solid #d35400 !important;
+}
+* * * * * * * * * * * {
+	outline: 1px solid #bdc3c7 !important;
+}
+* * * * * * * * * * * * {
+	outline: 1px solid #2980b9 !important;
+}
+* * * * * * * * * * * * * {
+	outline: 1px solid #e67e22 !important;
+}
