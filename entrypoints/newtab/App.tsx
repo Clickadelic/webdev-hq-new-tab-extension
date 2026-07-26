@@ -16,6 +16,8 @@ import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
 
+import StopWatch from "@/components/StopWatch";
+
 import { Toaster } from "sonner";
 // Pages
 import DashboardPage from "./pages/DashboardPage";
@@ -25,15 +27,15 @@ import ProjectsPage from "./pages/ProjectsPage";
 
 const data = {
 	navMain: [
-		{
-			title: "Dashboard",
-			url: "/",
-			icon: Gauge,
-			isActive: true
-		},
+		// {
+		// 	title: "Dashboard",
+		// 	url: "/",
+		// 	icon: Gauge,
+		// 	isActive: true
+		// },
 		{
 			title: "Apps",
-			url: "/apps",
+			url: "/",
 			icon: LayoutGrid,
 			isActive: false
 		},
@@ -99,19 +101,20 @@ const App = () => {
 						</header>
 
 						<section className="flex flex-col items-center justify-center p-4">
-							<div className="w-5xl mb-12">
+							<div className="w-5xl mb-6">
 								<Clock className="items-center justify-center gap-2 font-light mb-3" digitStyle="text-3xl text-shadow-lg" />
 								<SalutationBox className="text-shadow-lg text-3xl items-center justify-start mb-8 mx-auto" />
 								<MultiSearch className="w-full" />
 							</div>
 							<div className="w-5xl relative z-0">
 								<Routes>
-									<Route path="/" element={<DashboardPage />} />
-									<Route path="/apps" element={<AppsPage />} />
+									{/* <Route path="/" element={<DashboardPage />} /> */}
+									<Route path="/" element={<AppsPage />} />
 									<Route path="/todos" element={<TodosPage />} />
 									<Route path="/projects" element={<ProjectsPage />} />
 								</Routes>
 							</div>
+							<StopWatch className="absolute bottom-3 right-3" />
 						</section>
 						<Toaster />
 					</SidebarInset>

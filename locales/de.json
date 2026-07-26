@@ -398,5 +398,17 @@
 	"default_modules": {
 		"message": "Default modules",
 		"description": "Default modules text."
+	},
+	"start": {
+		"message": "Start",
+		"description": "Stoppuhr starten."
+	},
+	"stop": {
+		"message": "Stop",
+		"description": "Stoppuhr starten."
+	},
+	"reset": {
+		"message": "zurücksetzen",
+		"description": "Stoppuhr zurcksetzen."
 	}
 }
