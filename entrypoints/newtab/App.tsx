@@ -16,8 +16,10 @@ import { NavCommunityItems } from "@/components/nav-community-items";
 import { NavUser } from "@/components/nav-user";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarProvider, SidebarRail, SidebarTrigger } from "@/components/ui/sidebar";
 import Clock from "@/components/Clock";
-import SalutationBox from "@/components/SalutationBox";
+import SalutationBox from "@/components/DaytimeSalutation";
 import MultiSearch from "@/components/MultiSearch";
+
+import { Toaster } from "sonner";
 // Pages
 import DashboardPage from "./pages/DashboardPage";
 import AppsPage from "./pages/AppsPage";
@@ -84,20 +86,11 @@ const App = () => {
 
 					{/* Main content — SidebarInset fills the remaining width automatically */}
 					<SidebarInset className="bg-transparent">
-						<header className="App-header sticky top-0 z-50 flex h-15 items-center gap-3 bg-background px-3 border-b border-border">
+						<header className="App-header sticky top-0 z-50 flex h-15 items-center gap-3 bg-white/30 backdrop-blur dark:bg-slate-800/30 px-3">
 							<SidebarTrigger className="-ml-1" />
 							<ul className="ml-auto hidden items-center gap-1 md:flex">
 								<li>
-									<MegaMenu />
-								</li>
-								<li>
-									<LangSwitch />
-								</li>
-								<li>
 									<NotificationButton />
-								</li>
-								<li>
-									<InboxButton />
 								</li>
 								<li>
 									<FullscreenButton />
@@ -126,6 +119,7 @@ const App = () => {
 								</Routes>
 							</div>
 						</section>
+						<Toaster />
 					</SidebarInset>
 				</SidebarProvider>
 			</BackgroundImage>

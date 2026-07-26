@@ -1,6 +1,6 @@
 {
 	"console_log_on_installed": {
-		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen: https://webdev-hq.com/",
+		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen und weitere Extensions: https://webdev-hq.com/",
 		"description": "Konsolennachricht nach der Installation."
 	},
 	"good_morning": {
@@ -254,34 +254,6 @@
 	"git_url": {
 		"message": "Repository-Url",
 		"description": "Git-Url Text"
-	},
-	"tabs": {
-		"message": "Tabs",
-		"description": "Tabs Tab."
-	},
-	"history": {
-		"message": "Verlauf",
-		"description": "Verlaufs Tab."
-	},
-	"delete_history": {
-		"message": "Verlauf löschen",
-		"description": "Verlaufs Tab."
-	},
-	"no_history_found": {
-		"message": "Kein Verlauf vorhanden.",
-		"description": "Verlaufs Tab."
-	},
-	"downloads": {
-		"message": "Downloads",
-		"description": "Downloads Tab."
-	},
-	"no_downloads_found": {
-		"message": "Keine Downloads vorhanden.",
-		"description": "Downloads Tab."
-	},
-	"popular_sites": {
-		"message": "Häufige Seiten",
-		"description": "Popular Sites Tab."
 	},
 	"settings": {
 		"message": "Einstellungen",

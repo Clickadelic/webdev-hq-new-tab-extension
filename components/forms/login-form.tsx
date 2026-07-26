@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 import { LoginSchema } from "@/schemas";
-import { FormError } from "@/components/global/forms/form-error";
-import { FormSuccess } from "@/components/global/forms/form-success";
+import { FormError } from "@/components/forms/form-error";
+import { FormSuccess } from "@/components/forms/form-success";
 import { cn } from "@/lib/utils";
 import { decodeJwt, JwtPayload, handleLogout } from "@/lib/utils";
 

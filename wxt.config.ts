@@ -1,5 +1,5 @@
-import { defineConfig } from "wxt"
-import tailwindcss from "@tailwindcss/vite"
+import { defineConfig } from "wxt";
+import tailwindcss from "@tailwindcss/vite";
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -30,26 +30,9 @@ export default defineConfig({
 			"system.memory",
 			"system.storage"
 		],
-		side_panel: {
-			default_path: "sidepanel.html"
-		},
-		content_scripts: [
-			{
-				css: ["content-scripts/content.css"],
-				js: ["content-scripts/content.js"],
-				matches: ["*://*/*"]
-			}
-		],
-		// host_permissions: ["<all_urls>"],
 		host_permissions: ["https://webdev-hq.com/*"],
 		background: {
 			service_worker: "background.js"
-		},
-		web_accessible_resources: [
-			{
-				resources: ["assets/pesticide.css"],
-				matches: ["<all_urls>"]
-			}
-		]
+		}
 	}
-})
+});

@@ -1,7 +1,7 @@
-import UserProjects from "@/components/UserProjects";
+import ProjectGrid from "@/components/ProjectGrid";
 
 const ProjectsPage = () => {
-	return <UserProjects />;
+	return <ProjectGrid />;
 };
 
 export default ProjectsPage;

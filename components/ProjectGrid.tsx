@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Link } from "react-router-dom";
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -14,18 +12,17 @@ import { FormError } from "@/components/forms/form-error";
 import { FormSuccess } from "@/components/forms/form-success";
 import { useState } from "react";
 import { RxExternalLink } from "react-icons/rx";
-import { BsApp, BsHouse } from "react-icons/bs";
+import { BsHouse } from "react-icons/bs";
 import { FaGitAlt } from "react-icons/fa";
 import { Plus } from "lucide-react";
 import { TbEdit } from "react-icons/tb";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-import { AiOutlineEdit } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
-import { HiOutlineDotsVertical } from "react-icons/hi";
+
 import { useProjectStore } from "@/stores/use-project-store";
 import { ProjectSchema } from "@/schemas";
-import { RxHome } from "react-icons/rx";
-const UserProjects = () => {
+
+const ProjectGrid = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 
@@ -269,4 +266,4 @@ const UserProjects = () => {
 	);
 };
 
-export default UserProjects;
+export default ProjectGrid;
