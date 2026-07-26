@@ -391,60 +391,8 @@
 		"message": "Logout",
 		"description": "Logout Button."
 	},
-	"create_new_content": {
-		"message": "Neuen Inhalt anlegen",
-		"description": "Create new content text."
-	},
-	"create_new_hyperlink": {
-		"message": "Neuen Hyperlink anlegen",
-		"description": "Create new hyperlink text."
-	},
-	"add_hyperlink_title": {
-		"message": "Neuer Hyperlink",
-		"description": "Legt einen neuen Hyperlink an."
-	},
-	"add_hyperlink_description": {
-		"message": "Füge einen neuen Hyperlink der Liste hinzu.",
-		"description": "Fügt einen Hyperlink zum Pool aller Hyperlinks hinzu."
-	},
-	"edit_hyperlink_title": {
-		"message": "Bearbeite den Hyperlink.",
-		"description": "Bearbeitet den Hyperlink."
-	},
-	"hyperlink_title": {
-		"message": "Titel",
-		"description": "Bearbeitet den Hyperlink."
-	},
-	"hyperlink_url": {
-		"message": "Url",
-		"description": "Bearbeitet die Url."
-	},
-	"hyperlink_url_placeholder": {
-		"message": "https://...",
-		"description": "Hyperlink url placeholder."
-	},
-	"dont_have_an_account": {
-		"message": "Du hast noch kein Konto?",
-		"description": "Don't have an account text."
-	},
-	"register": {
-		"message": "Registrieren",
-		"description": "Register text."
-	},
-	"already_have_an_account": {
-		"message": "Du hast bereits ein Konto?",
-		"description": "Already have an account text."
-	},
-	"login_here": {
-		"message": "Login",
-		"description": "Login hier text."
-	},
-	"your_account": {
-		"message": "Dein Konto",
-		"description": "Dein account text."
-	},
-	"enable_disable_debug_css": {
-		"message": "Debug CSS aktivieren/deaktivieren",
-		"description": "Inject debug CSS text."
+	"light_or_darkmode": {
+		"message": "Light or Darkmode",
+		"description": "Light or Darkmode Button."
 	}
 }

@@ -38,7 +38,7 @@ export const SidebarSheetButton = () => {
 						<DeleteAllAppsButton />
 					</div>
 					<div className="flex justify-between gap-2">
-						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("delete_all_apps_settings_text", "Delete all apps.")}</p>
+						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("light_or_darkmode", "Select your preferred theme.")}</p>
 						<ModeToggle />
 					</div>
 				</div>
