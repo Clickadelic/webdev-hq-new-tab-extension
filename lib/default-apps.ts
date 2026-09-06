@@ -15,6 +15,7 @@ import GsavedIcon from "@/assets/icons/google-apps-2026/google.svg";
 import OneIcon from "@/assets/icons/google-apps-2026/google-one-2026.svg";
 import VidsIcon from "@/assets/icons/google-apps-2026/google-vids-2026.svg";
 import VoiceIcon from "@/assets/icons/google-apps-2026/google-voice-2026.svg";
+import ChatIcon from "@/assets/icons/google-apps-2026/google-chat-2026.svg";
 // Old icons
 import AccountIcon from "@/assets/icons/google-apps/google-account.svg";
 import PasswordsIcon from "@/assets/icons/google-apps/google-password.svg";
@@ -233,6 +234,12 @@ const defaultApps = [
 		title: "Voice",
 		icon: VoiceIcon,
 		url: "https://voice.google.com/"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Chat",
+		icon: ChatIcon,
+		url: "https://chat.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
