@@ -8,6 +8,10 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 		define: {
 			"import.meta.env.WXT_HOMEPAGE_URL": JSON.stringify(process.env.WXT_HOMEPAGE_URL || "https://webdev-hq.com")
+		},
+		// Inline all icon SVGs (<10kb) as base64 so they don't depend on the dev-server origin or emitted asset URLs
+		build: {
+			assetsInlineLimit: 10000
 		}
 	}),
 	manifest: {
