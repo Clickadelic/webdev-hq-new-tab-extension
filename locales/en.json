@@ -291,10 +291,6 @@
 		"message": "on",
 		"description": "Preposition 'on'."
 	},
-	"start_meazure_tool": {
-		"message": "Start measure tool",
-		"description": "Start the measure tool."
-	},
 	"open_dashboard": {
 		"message": "Open Dashboard",
 		"description": "Open dashboard."
@@ -446,9 +442,5 @@
 	"your_account": {
 		"message": "Your Account",
 		"description": "Your Account text."
-	},
-	"enable_disable_debug_css": {
-		"message": "activate/deactivate debug CSS",
-		"description": "Inject debug CSS text."
 	}
 }

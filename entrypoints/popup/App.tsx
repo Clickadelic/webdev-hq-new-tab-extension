@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { AiOutlineBug } from "react-icons/ai";
 import { JwtPayload, decodeJwt, handleLogout } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import Logo from "@/components/global/Logo";
@@ -55,23 +54,6 @@ const App = () => {
 			}
 		};
 	}, []);
-	const injectCSS = () => {
-		if (!chrome?.tabs) {
-			console.error("chrome.tabs is not available.");
-			return;
-		}
-
-		chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-			const activeTab = tabs[0];
-			if (activeTab?.id) {
-				chrome.tabs.sendMessage(activeTab.id, {
-					command: "injectStylesheet",
-					stylesheet: "assets/pesticide.css"
-				});
-			}
-		});
-	};
-
 	return (
 		<ThemeProvider>
 			<div className="p-4 w-96 bg-white dark:bg-slate-800">
@@ -82,10 +64,6 @@ const App = () => {
 							<p className="text-lg text-center text-slate-800 dark:text-slate-200">
 								{dailySalutation()}, {user.username}!
 							</p>
-							<Button variant="primary" onClick={injectCSS}>
-								<AiOutlineBug />
-								{chrome.i18n.getMessage("inject_debug_css", "Inject CSS")}
-							</Button>
 						</div>
 						<Button onClick={handleLogout} variant="secondary" className="w-full">
 							Abmelden

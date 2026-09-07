@@ -1,5 +1,5 @@
-import { defineConfig } from "wxt"
-import tailwindcss from "@tailwindcss/vite"
+import { defineConfig } from "wxt";
+import tailwindcss from "@tailwindcss/vite";
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -12,6 +12,12 @@ export default defineConfig({
 	}),
 	manifest: {
 		default_locale: "en",
+		icons: {
+			16: "icon/16.png",
+			32: "icon/32.png",
+			48: "icon/48.png",
+			128: "icon/128.png"
+		},
 		permissions: [
 			"activeTab",
 			"bookmarks",
@@ -25,7 +31,6 @@ export default defineConfig({
 			"topSites",
 			"storage",
 			"sidePanel",
-			"scripting",
 			"system.cpu",
 			"system.memory",
 			"system.storage"
@@ -35,7 +40,6 @@ export default defineConfig({
 		},
 		content_scripts: [
 			{
-				css: ["content-scripts/content.css"],
 				js: ["content-scripts/content.js"],
 				matches: ["*://*/*"]
 			}
@@ -44,12 +48,6 @@ export default defineConfig({
 		host_permissions: ["https://webdev-hq.com/*"],
 		background: {
 			service_worker: "background.js"
-		},
-		web_accessible_resources: [
-			{
-				resources: ["assets/pesticide.css"],
-				matches: ["<all_urls>"]
-			}
-		]
+		}
 	}
-})
+});

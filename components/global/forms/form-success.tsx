@@ -8,7 +8,7 @@ export const FormSuccess = ({ message }: FormSuccessProps) => {
 	if (!message) return null;
 
 	return (
-		<div className="bg-emerald-300 p-2 rounded flex items-center gap-x-2 text-sm text-white">
+		<div className="bg-emerald-300 p-2 rounded flex items-center gap-x-2 text-sm text-emerald-800">
 			<FiCheckCircle className="size-4" />
 			<p>{message}</p>
 		</div>

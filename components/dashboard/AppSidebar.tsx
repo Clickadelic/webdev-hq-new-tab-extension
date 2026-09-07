@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Grip, Map, PieChart, SquareTerminal } from "lucide-react"
+import * as React from "react";
+import { Grip, Map, PieChart, SquareTerminal } from "lucide-react";
 
-import { NavMain } from "@/components/dashboard/nav-main"
-import { NavCommunityItems } from "@/components/dashboard/nav-community-items"
-import { NavUser } from "@/components/dashboard/nav-user"
+import { NavMain } from "@/components/dashboard/nav-main";
+import { NavCommunityItems } from "@/components/dashboard/nav-community-items";
+import { NavUser } from "@/components/dashboard/nav-user";
 
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar"
-import Logo from "../global/Logo"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, useSidebar } from "@/components/ui/sidebar";
+import Logo from "../global/Logo";
 
 const data = {
 	user: {
@@ -45,17 +45,18 @@ const data = {
 			name: "News",
 			url: "#",
 			icon: Grip
-		},
-
+		}
 	]
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+	const { state } = useSidebar();
+	const isCollapsed = state === "collapsed";
 
 	return (
 		<Sidebar collapsible="icon" {...props}>
 			<SidebarHeader className="flex items-center justify-center p-0">
-				<Logo />
+				<Logo url={import.meta.env.WXT_HOMEPAGE_URL} isSidebarOpen={!isCollapsed} />
 			</SidebarHeader>
 			<SidebarContent className="pt-8">
 				<NavMain items={data.navMain} />
@@ -66,5 +67,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 			</SidebarFooter>
 			<SidebarRail />
 		</Sidebar>
-	)
+	);
 }

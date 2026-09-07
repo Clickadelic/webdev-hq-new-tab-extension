@@ -1,9 +1,0 @@
-#webdev-hq-debug-box {
-	position: absolute;
-	top: 2rem;
-	left: 2rem;
-	width: 16rem;
-	height: 16rem;
-	background-color: rgba(255, 255, 255, 0.25);
-	border-radius: 0.5rem;
-}
