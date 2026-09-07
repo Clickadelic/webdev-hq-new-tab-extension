@@ -6,13 +6,6 @@ export default defineBackground(() => {
 	function registerContextMenus() {
 		chrome.contextMenus.removeAll(() => {
 			chrome.contextMenus.create({
-				id: "webdev-hq-inject-css",
-				title: getMenuTitle("enable_disable_debug_css", "Enable/Disable Debug CSS"),
-				type: "normal",
-				contexts: ["selection", "page"]
-			});
-
-			chrome.contextMenus.create({
 				id: "webdev-hq-save-webpage",
 				title: getMenuTitle("save_webpage_to_headquarter", "Save webpage to WebDev HQ"),
 				type: "normal",
@@ -119,20 +112,9 @@ export default defineBackground(() => {
 	// 4. KONTEXTMENÜ KLICK
 	// ==========================================
 	chrome.contextMenus.onClicked.addListener((info, tab) => {
-		if (info.menuItemId === "webdev-hq-inject-css" && tab?.id) {
-			// Wir senden jetzt "toggleStylesheet" statt fest "inject"
-			chrome.tabs.sendMessage(tab.id, {
-				command: "toggleStylesheet",
-				stylesheet: "assets/pesticide.css"
-			});
-		}
-	});
-	chrome.contextMenus.onClicked.addListener((info, tab) => {
 		if (info.menuItemId === "webdev-hq-save-webpage" && tab?.id) {
-			// Wir senden jetzt "saveWebpage"
 			chrome.tabs.sendMessage(tab.id, {
-				command: "saveWebpageToHeadquarter",
-				stylesheet: "assets/pesticide.css"
+				command: "saveWebpageToHeadquarter"
 			});
 		}
 	});
@@ -143,21 +125,8 @@ export default defineBackground(() => {
 	chrome.action.onClicked.addListener(tab => {
 		if (!tab.id) return;
 
-		chrome.scripting.executeScript({
-			target: { tabId: tab.id },
-			files: ["meazure-script.js"]
-		});
-
-		// Auch hier senden wir jetzt den Toggle-Befehl
 		chrome.tabs.sendMessage(tab.id, {
-			command: "toggleStylesheet",
-			stylesheet: "assets/pesticide.css"
-		});
-
-		// Auch hier senden wir jetzt den Save-Befehl
-		chrome.tabs.sendMessage(tab.id, {
-			command: "saveWebpageToHeadquarter",
-			stylesheet: "assets/pesticide.css"
+			command: "saveWebpageToHeadquarter"
 		});
 	});
 

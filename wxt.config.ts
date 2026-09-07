@@ -31,7 +31,6 @@ export default defineConfig({
 			"topSites",
 			"storage",
 			"sidePanel",
-			"scripting",
 			"system.cpu",
 			"system.memory",
 			"system.storage"
@@ -41,7 +40,6 @@ export default defineConfig({
 		},
 		content_scripts: [
 			{
-				css: ["content-scripts/content.css"],
 				js: ["content-scripts/content.js"],
 				matches: ["*://*/*"]
 			}
@@ -50,12 +48,6 @@ export default defineConfig({
 		host_permissions: ["https://webdev-hq.com/*"],
 		background: {
 			service_worker: "background.js"
-		},
-		web_accessible_resources: [
-			{
-				resources: ["assets/pesticide.css"],
-				matches: ["<all_urls>"]
-			}
-		]
+		}
 	}
 });

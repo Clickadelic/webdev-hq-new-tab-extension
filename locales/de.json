@@ -311,10 +311,6 @@
 		"message": "auf",
 		"description": "auf Präposition."
 	},
-	"start_meazure_tool": {
-		"message": "Starte Messwerkzeug",
-		"description": "Startet das Messwerkzeug."
-	},
 	"open_dashboard": {
 		"message": "Öffne Dashboard",
 		"description": "Dashboard öffnen."
@@ -466,9 +462,5 @@
 	"your_account": {
 		"message": "Dein Konto",
 		"description": "Dein account text."
-	},
-	"enable_disable_debug_css": {
-		"message": "Debug CSS aktivieren/deaktivieren",
-		"description": "Inject debug CSS text."
 	}
 }
