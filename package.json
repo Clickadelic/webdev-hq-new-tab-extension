@@ -1,8 +1,8 @@
 {
-	"name": "webdev-hq-chrome-extension",
-	"description": "WebDeveloper Tools Chrome Extension",
+	"name": "WebDev HQ - NewTab",
+	"description": "A new tab extension for you to improve your search experience and surf starting point.",
 	"private": true,
-	"version": "0.0.20",
+	"version": "0.0.21",
 	"type": "module",
 	"scripts": {
 		"debug": "wxt prepare --debug",
