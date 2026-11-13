@@ -10,55 +10,68 @@ interface BackgroundImageProps {
 }
 
 const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundImageProps) => {
-	const { imageUrl, credit, setImage, resetImage } = useImageStore();
+	const imageUrl = useImageStore(state => state.imageUrl);
+	const credit = useImageStore(state => state.credit);
+	const setImage = useImageStore(state => state.setImage);
 	const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
 	useEffect(() => {
+		console.log("BackgroundImage effect running");
 		let canceled = false;
-		resetImage();
+		
 		console.log("Sending getRandomImage message to background script");
-		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
+		chrome.runtime.sendMessage({ action: "getRandomImage" }, (response) => {
+			if (canceled) return;
+			
 			console.log("Raw response from background:", response);
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error);
 				return;
 			}
 
-			// Aus dem kompletten Response-Objekt die wichtigen Felder extrahieren:
-			const url = response.data.urls.raw || response.data.urls.full || response.data.urls.regular;
-			if (!url) {
-				console.error("No valid image URL received.");
-				return;
+			try {
+				// Aus dem kompletten Response-Objekt die wichtigen Felder extrahieren:
+				const url = response.data?.urls?.raw || response.data?.urls?.full || response.data?.urls?.regular;
+				if (!url) {
+					console.error("No valid image URL received.");
+					return;
+				}
+
+				// Blurred low-res preview immediately to avoid a blank screen
+				const low = response.data?.urls?.small || response.data?.urls?.thumb;
+				if (low && !canceled) {
+					setPreviewUrl(low);
+				}
+
+				const author = response.data?.user?.name || "Unknown";
+				const authorUrl = response.data?.user?.links?.html || "#";
+				const unsplashUrl = response.data?.links?.html || "#";
+
+				// Preload the full image before showing it to avoid an image flash
+				const img = new Image();
+				img.onload = () => {
+					if (canceled) return;
+					setImage(url, {
+						author,
+						authorUrl,
+						unsplashUrl
+					});
+				};
+				img.onerror = () => {
+					if (canceled) return;
+					console.error("Failed to preload image:", url);
+				};
+				img.src = url;
+			} catch (error) {
+				console.error("Error processing image:", error);
 			}
-
-			// Blurred low-res preview immediately to avoid a blank screen
-			const low = response.data.urls.small || response.data.urls.thumb;
-			if (low && !canceled) {
-				setPreviewUrl(low);
-			}
-
-			const author = response.data.user?.name || "Unbekannt";
-			const authorUrl = response.data.user?.links?.html || "#";
-			const unsplashUrl = response.data.links?.html || "#";
-
-			// Preload the full image before showing it to avoid an image flash
-			const img = new Image();
-			img.onload = () => {
-				if (canceled) return;
-				setImage(url, {
-					author,
-					authorUrl,
-					unsplashUrl
-				});
-			};
-			img.onerror = () => console.error("Failed to preload image:", url);
-			img.src = url;
 		});
 
 		return () => {
 			canceled = true;
 		};
-	}, [setImage, resetImage]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<div className={cn("relative min-h-screen overflow-hidden", classNames)}>

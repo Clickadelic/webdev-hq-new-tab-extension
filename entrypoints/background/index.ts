@@ -35,7 +35,7 @@ export default defineBackground(() => {
 	}
 
 	async function fetchSeasonalImage(): Promise<any> {
-		const today = new Date().toISOString().split("T")[0];
+		const today = new globalThis.Date().toISOString().split("T")[0];
 		try {
 			const data = await getFromStorage<StorageData>(["seasonalImageResponse", "lastFetchedDate"]);
 			if (data.seasonalImageResponse && data.lastFetchedDate === today) {
