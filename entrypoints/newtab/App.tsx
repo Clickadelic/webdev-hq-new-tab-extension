@@ -1,12 +1,12 @@
 import AppIcon from "@/components/AppIcon";
 import { formatIsoDate } from "@/lib/utils";
 import BackgroundImage from "@/components/BackgroundImage";
-import ButtonBar from "@/components/ButtonBar";
+
 import Clock from "@/components/Clock";
 import UserInfoBox from "@/components/UserInfoBox";
 import MultiSearch from "@/components/MultiSearch";
-import { SettingsButton } from "@/components/SettingsButton";
 
+import SettingsButton from "@/components/SettingsButton";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import UserApps from "@/components/UserApps";
@@ -23,7 +23,8 @@ const App = () => {
 				<UserInfoBox classNames="w-full max-w-275 mt-12 mx-auto md:mt-20 xl:mt-24 mb-3 flex justify-between gap-1 p-1 pr-4" />
 				<MultiSearch classNames="w-full max-w-275 my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-900/30" />
 				<UserApps className="w-full max-w-275 mx-auto" />
-				<SettingsButton />
+
+				<SettingsButton className="fixed bottom-8 right-8" />
 				<Toaster className="dark:bg-neutral-900" />
 			</BackgroundImage>
 		</ThemeProvider>

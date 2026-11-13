@@ -23,12 +23,6 @@ export default defineConfig({
 			128: "icon/128.png"
 		},
 		permissions: ["activeTab", "bookmarks", "contextMenus", "cookies", "downloads", "history", "management", "tabs", "tabGroups", "topSites", "storage"],
-		content_scripts: [
-			{
-				js: ["content-scripts/content.js"],
-				matches: ["*://*/*"]
-			}
-		],
 		// host_permissions: ["<all_urls>"],
 		host_permissions: ["https://webdev-hq.com/*"],
 		background: {

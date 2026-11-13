@@ -25,7 +25,7 @@ export const ExportAppsButton = () => {
 
 	return (
 		<Button
-			className="border border-neutral-200 bg-white shadow-none text-neutral-800 dark:text-neutral-300 hover:border-primary hover:bg-white hover:cursor-pointer"
+			className="border border-neutral-200 dark:border-neutral-700 bg-white shadow-none text-neutral-800 dark:text-neutral-300 hover:border-primary hover:bg-white hover:cursor-pointer"
 			onClick={handleExport}
 			title={chrome.i18n.getMessage("export_apps", "Export apps")}
 		>

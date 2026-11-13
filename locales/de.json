@@ -1,8 +1,4 @@
 {
-	"restore_user_failed": {
-		"message": "Dein Konto konnte nicht wiederhergestellt werden. Bitte versuche es erneut.",
-		"description": "Fehlermeldung, wenn das gespeicherte Konto nicht wiederhergestellt werden kann."
-	},
 	"console_log_on_installed": {
 		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen: https://webdev-hq.com/",
 		"description": "Konsolennachricht nach der Installation."
@@ -18,14 +14,6 @@
 	"good_evening": {
 		"message": "Guten Abend",
 		"description": "Begrüßung abends."
-	},
-	"next_appointment": {
-		"message": "Nächster Termin",
-		"description": "Anzeige nächster Termin."
-	},
-	"no_appointment_found": {
-		"message": "Kein Termin gefunden.",
-		"description": "Anzeige kein Termin gefunden."
 	},
 	"o_clock": {
 		"message": "Uhr",
@@ -111,182 +99,6 @@
 		"message": "Apps exportieren",
 		"description": "Apps export Buttontext."
 	},
-	"todos": {
-		"message": "Todos",
-		"description": "Todos Tab."
-	},
-	"create_your_first_todo": {
-		"message": "Erstelle Dein erstes Todo.",
-		"description": "Todos Tab."
-	},
-	"new_todo_title": {
-		"message": "Titel",
-		"description": "New Todo placeholder."
-	},
-	"new_todo_placeholder": {
-		"message": "Neues Todo",
-		"description": "New Todo placeholder."
-	},
-	"select_date": {
-		"message": "Datum wählen",
-		"description": "Neues Datum wählen."
-	},
-	"todo_description": {
-		"message": "Füge ein Todo hinzu.",
-		"description": "New Todo placeholder."
-	},
-	"new_todo_description_label": {
-		"message": "Beschreibung",
-		"description": "Todo Beschreibung placeholder."
-	},
-	"new_todo_description_placeholder": {
-		"message": "Details des Todo's",
-		"description": "New Todo placeholder."
-	},
-	"todo_deleted": {
-		"message": "Todo gelöscht.",
-		"description": "New Todo placeholder."
-	},
-	"add_todo_title": {
-		"message": "Todo hinzufügen",
-		"description": "App hinzufügen Text."
-	},
-	"add_todo_description": {
-		"message": "Füge ein neues Todo hinzu.",
-		"description": "Todo hinzufügen Text."
-	},
-	"edit_todo_title": {
-		"message": "Todo bearbeiten",
-		"description": "App bearbeiten Text."
-	},
-	"edit_todo_description": {
-		"message": "Beschreibung",
-		"description": "Todo bearbeiten Beschreibung."
-	},
-	"edit_todo_description_placeholder": {
-		"message": "Bearbeite das aktuelle Todo.",
-		"description": "Todo bearbeiten Beschreibung."
-	},
-	"add_todo": {
-		"message": "Todo hinzufügen",
-		"description": "Todo hinzufügen Beschreibung."
-	},
-	"edit_todo": {
-		"message": "Todo bearbeiten",
-		"description": "Todo bearbeiten Beschreibung."
-	},
-	"todo_added": {
-		"message": "Todo bearbeiten",
-		"description": "Todo hinzugefügt"
-	},
-	"todo_edited": {
-		"message": "Todo bearbeitet",
-		"description": "Todo bearbeitet"
-	},
-	"done_label": {
-		"message": "Erledigt",
-		"description": "Todo erledigt"
-	},
-	"projects": {
-		"message": "Projekte",
-		"description": "Projekte Tab."
-	},
-	"add_project": {
-		"message": "Neues Projekt",
-		"description": "Neues Projekt"
-	},
-	"edit_project": {
-		"message": "Projekt bearbeiten",
-		"description": "Projekt bearbeiten"
-	},
-	"delete_project": {
-		"message": "Projekt löschen",
-		"description": "Neues Projekt"
-	},
-	"add_project_title": {
-		"message": "Projekt hinzufügen",
-		"description": "Neues Projekt hinzufügen"
-	},
-	"add_project_description": {
-		"message": "Füge ein neues Projekt zu Deiner Sammlung hinzu.",
-		"description": "Projekt hinzufügen Text."
-	},
-	"project_title_label": {
-		"message": "Titel",
-		"description": "Projekttitel."
-	},
-	"project_title_input_placeholder": {
-		"message": "Mein Projekttitel",
-		"description": "Projekt hinzufügen Text."
-	},
-	"project_description_label": {
-		"message": "Beschreibung",
-		"description": "Projekttitel."
-	},
-	"project_description_input_placeholder": {
-		"message": "Details zum Projekt",
-		"description": "Projektdetails hinzufügen Text."
-	},
-	"project_url_label": {
-		"message": "Projekt-Url",
-		"description": "Projekt-Url."
-	},
-	"project_url_input_placeholder": {
-		"message": "https://...",
-		"description": "Projektdetails hinzufügen Text."
-	},
-	"project_giturl_label": {
-		"message": "Git-Url",
-		"description": "Git-Url."
-	},
-	"project_giturl_input_placeholder": {
-		"message": "https://...",
-		"description": "Projekt GitHubLink hinzufügen Placeholder."
-	},
-	"edit_project_title": {
-		"message": "Projekt bearbeiten",
-		"description": "Projekt bearbeiten Text"
-	},
-	"edit_project_description": {
-		"message": "Ändere Details des Projekts.",
-		"description": "Projekt bearbeiten Text"
-	},
-	"website": {
-		"message": "Webseite",
-		"description": "Webseite Text"
-	},
-	"git_url": {
-		"message": "Repository-Url",
-		"description": "Git-Url Text"
-	},
-	"tabs": {
-		"message": "Tabs",
-		"description": "Tabs Tab."
-	},
-	"history": {
-		"message": "Verlauf",
-		"description": "Verlaufs Tab."
-	},
-	"delete_history": {
-		"message": "Verlauf löschen",
-		"description": "Verlaufs Tab."
-	},
-	"no_history_found": {
-		"message": "Kein Verlauf vorhanden.",
-		"description": "Verlaufs Tab."
-	},
-	"downloads": {
-		"message": "Downloads",
-		"description": "Downloads Tab."
-	},
-	"no_downloads_found": {
-		"message": "Keine Downloads vorhanden.",
-		"description": "Downloads Tab."
-	},
-	"popular_sites": {
-		"message": "Häufige Seiten",
-		"description": "Popular Sites Tab."
-	},
 	"settings": {
 		"message": "Einstellungen",
 		"description": "Einstellungen Tab."
@@ -314,10 +126,6 @@
 	"on": {
 		"message": "auf",
 		"description": "auf Präposition."
-	},
-	"open_dashboard": {
-		"message": "Öffne Dashboard",
-		"description": "Dashboard öffnen."
 	},
 	"settings_title": {
 		"message": "Einstellungen",
@@ -363,14 +171,6 @@
 		"message": "Alle Apps gelöscht.",
 		"description": "Lösche alle Apps im Set-Text."
 	},
-	"more_fields_coming_soon": {
-		"message": "Weitere Felde kommen bald.",
-		"description": "Lösche alle Apps im Set-Text."
-	},
-	"toggle_fullscreen": {
-		"message": "Fullscreen",
-		"description": "Fullscreen text."
-	},
 	"light_mode": {
 		"message": "Light mode",
 		"description": "Light mode text."
@@ -387,84 +187,8 @@
 		"message": "Allgemein",
 		"description": "Allgemeine Einstellungen Tab Titel."
 	},
-	"general_default_tab_settings_text": {
-		"message": "Wähle Deinen Standard-Mini-Tab aus.",
-		"description": "Allgemeine Standard-Tab Einstellungen Tab Titel."
-	},
-	"default_tab_changed": {
-		"message": "Standard-Tab geändert.",
-		"description": "Nachricht, wenn der Standard-Tab geändert wurde."
-	},
-	"loading": {
-		"message": "Loading...",
-		"description": "Loading text."
-	},
-	"email": {
-		"message": "E-Mail",
-		"description": "E-Mail field."
-	},
-	"password": {
-		"message": "Password",
-		"description": "Password field."
-	},
-	"login": {
-		"message": "Login",
-		"description": "Login Button."
-	},
-	"logout": {
-		"message": "Logout",
-		"description": "Logout Button."
-	},
-	"create_new_content": {
-		"message": "Neuen Inhalt anlegen",
-		"description": "Create new content text."
-	},
-	"create_new_hyperlink": {
-		"message": "Neuen Hyperlink anlegen",
-		"description": "Create new hyperlink text."
-	},
-	"add_hyperlink_title": {
-		"message": "Neuer Hyperlink",
-		"description": "Legt einen neuen Hyperlink an."
-	},
-	"add_hyperlink_description": {
-		"message": "Füge einen neuen Hyperlink der Liste hinzu.",
-		"description": "Fügt einen Hyperlink zum Pool aller Hyperlinks hinzu."
-	},
-	"edit_hyperlink_title": {
-		"message": "Bearbeite den Hyperlink.",
-		"description": "Bearbeitet den Hyperlink."
-	},
-	"hyperlink_title": {
-		"message": "Titel",
-		"description": "Bearbeitet den Hyperlink."
-	},
-	"hyperlink_url": {
-		"message": "Url",
-		"description": "Bearbeitet die Url."
-	},
-	"hyperlink_url_placeholder": {
-		"message": "https://...",
-		"description": "Hyperlink url placeholder."
-	},
-	"dont_have_an_account": {
-		"message": "Du hast noch kein Konto?",
-		"description": "Don't have an account text."
-	},
-	"register": {
-		"message": "Registrieren",
-		"description": "Register text."
-	},
-	"already_have_an_account": {
-		"message": "Du hast bereits ein Konto?",
-		"description": "Already have an account text."
-	},
-	"login_here": {
-		"message": "Login",
-		"description": "Login hier text."
-	},
-	"your_account": {
-		"message": "Dein Konto",
-		"description": "Dein account text."
+	"appearance_color_mode_settings_text": {
+		"message": "Wähle den Farbmodus (hell/dunkel/system).",
+		"description": "Erscheinungsbild Farbe Modus Einstellungstext."
 	}
 }

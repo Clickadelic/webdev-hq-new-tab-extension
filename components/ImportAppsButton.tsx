@@ -42,7 +42,7 @@ export const ImportAppsButton = () => {
 		<>
 			<input type="file" accept="application/json" ref={fileInputRef} onChange={handleFileChange} style={{ display: "none" }} />
 			<Button
-				className="border border-neutral-200 bg-white shadow-none text-neutral-800 dark:text-neutral-300 hover:border-primary hover:bg-white hover:cursor-pointer"
+				className="border border-neutral-200 dark:border-neutral-700 bg-white shadow-none text-neutral-800 dark:text-neutral-300 hover:border-primary hover:bg-white hover:cursor-pointer"
 				onClick={triggerFileInput}
 				title={chrome.i18n.getMessage("import_apps", "Import apps")}
 			>

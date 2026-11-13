@@ -1,4 +1,4 @@
-import { SettingsButton } from "@/components/SettingsButton";
+import { SettingsButton } from "@/components/SettingsButton_old";
 import { ModeToggle } from "@/components/ModeToggle";
 
 import { cn } from "@/lib/utils";

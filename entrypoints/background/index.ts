@@ -72,7 +72,7 @@ export default defineBackground(() => {
 		}
 	});
 
-	// 6. Central message listener
+	// 4. Central message listener
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		console.log("Background received message:", message);
 

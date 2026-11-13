@@ -12,7 +12,7 @@ export const LoadGoogleAppsButton: React.FC = () => {
 	return (
 		<Button
 			onClick={() => resetGoogleApps()}
-			className="border border-neutral-200 bg-white shadow-none text-neutral-800 dark:text-neutral-300 hover:border-primary hover:bg-white hover:cursor-pointer"
+			className="border border-neutral-200 dark:border-neutral-700 bg-white shadow-none text-neutral-800 dark:text-neutral-300 hover:border-primary hover:bg-white hover:cursor-pointer"
 			title={chrome.i18n.getMessage("load_google_apps", "Load Google Apps")}
 		>
 			<FaGoogle className="size-4" />
