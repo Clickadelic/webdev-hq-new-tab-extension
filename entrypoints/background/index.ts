@@ -3,17 +3,6 @@ export default defineBackground(() => {
 		return chrome.i18n.getMessage(messageName, fallback) || fallback;
 	}
 
-	function registerContextMenus() {
-		chrome.contextMenus.removeAll(() => {
-			chrome.contextMenus.create({
-				id: "webdev-hq-save-webpage",
-				title: getMenuTitle("save_webpage_to_headquarter", "Save webpage to WebDev HQ"),
-				type: "normal",
-				contexts: ["selection", "page"]
-			});
-		});
-	}
-
 	// ==========================================
 	// 1. ZENTRALES INSTALL- / START-EVENT
 	// ==========================================
@@ -22,14 +11,7 @@ export default defineBackground(() => {
 
 		// Seasonal-Image Daten laden
 		fetchSeasonalImage().catch(console.error);
-		registerContextMenus();
 	});
-
-	chrome.runtime.onStartup.addListener(() => {
-		registerContextMenus();
-	});
-
-	registerContextMenus();
 
 	// ==========================================
 	// 2. HELPER & STORAGE LOGIK
@@ -91,48 +73,14 @@ export default defineBackground(() => {
 		}
 	}
 
-	function getHistory() {
-		return new Promise((resolve, reject) => {
-			chrome.history.search({ text: "", maxResults: 10 }, function (results) {
-				resolve(results);
-			});
-		});
-	}
-
-	// ==========================================
 	// 3. AUTO-UPDATE BEI TABS
-	// ==========================================
 	chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 		if (changeInfo.status === "complete") {
 			fetchSeasonalImage().catch(err => console.error("Auto-update failed:", err));
 		}
 	});
 
-	// ==========================================
-	// 4. KONTEXTMENÜ KLICK
-	// ==========================================
-	chrome.contextMenus.onClicked.addListener((info, tab) => {
-		if (info.menuItemId === "webdev-hq-save-webpage" && tab?.id) {
-			chrome.tabs.sendMessage(tab.id, {
-				command: "saveWebpageToHeadquarter"
-			});
-		}
-	});
-
-	// ==========================================
-	// 5. EXTENSION ICON (ACTION BUTTON) KLICK
-	// ==========================================
-	chrome.action.onClicked.addListener(tab => {
-		if (!tab.id) return;
-
-		chrome.tabs.sendMessage(tab.id, {
-			command: "saveWebpageToHeadquarter"
-		});
-	});
-
-	// ==========================================
 	// 6. ZENTRALER MESSAGE LISTENER
-	// ==========================================
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		console.log("Background received message:", message);
 
@@ -143,61 +91,6 @@ export default defineBackground(() => {
 					console.error("Error in fetchSeasonalImage:", error);
 					sendResponse({ error: "fetch_failed" });
 				});
-			return true;
-		}
-
-		if (message.action === "getHistory") {
-			getHistory().then(history => sendResponse({ history }));
-			return true;
-		}
-
-		if (message.action === "saveWebpageToHeadquarter") {
-			const apiVersion = message.apiVersion || import.meta.env.WXT_API_VERSION || "v1";
-			const payload = message.payload;
-
-			// Read auth token from storage
-			chrome.storage.local.get(["authToken"], async items => {
-				const token = items.authToken as string | undefined;
-				if (!token) {
-					// Prompt user to login: try to open the extension popup, otherwise open the web login page
-					try {
-						if (chrome.action && (chrome.action as any).openPopup) {
-							(chrome.action as any).openPopup();
-						} else {
-							chrome.tabs.create({ url: `${import.meta.env.WXT_HOMEPAGE_URL}/login` });
-						}
-					} catch (e) {
-						try {
-							chrome.tabs.create({ url: `${import.meta.env.WXT_HOMEPAGE_URL}/login` });
-						} catch (_) {}
-					}
-
-					sendResponse({ success: false, error: "No auth token available" });
-					return;
-				}
-
-				try {
-					const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/${apiVersion}/hyperlinks`, {
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json",
-							"Accept": "application/json",
-							"Authorization": `Bearer ${token}`
-						},
-						body: JSON.stringify(payload)
-					});
-
-					const data = await res.json().catch(() => null);
-					if (!res.ok) {
-						sendResponse({ success: false, error: data?.message || "Unable to save this page to WebDev HQ." });
-						return;
-					}
-					sendResponse({ success: true, data });
-				} catch (err: any) {
-					sendResponse({ success: false, error: err.message || String(err) });
-				}
-			});
-
 			return true;
 		}
 	});

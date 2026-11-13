@@ -1,5 +1,5 @@
-import { SettingsButton } from "@/components/newtab/buttons/SettingsButton";
-import { ModeToggle } from "@/components/global/ModeToggle";
+import { SettingsButton } from "@/components/SettingsButton";
+import { ModeToggle } from "@/components/ModeToggle";
 
 import { cn } from "@/lib/utils";
 

@@ -1,14 +1,14 @@
-import AppIcon from "@/components/global/AppIcon";
+import AppIcon from "@/components/AppIcon";
 import { formatIsoDate } from "@/lib/utils";
-import BackgroundImage from "@/components/global/BackgroundImage";
-import ButtonBar from "@/components/newtab/ButtonBar";
-import Clock from "@/components/newtab/Clock";
-import UserInfoBox from "@/components/newtab/UserInfoBox";
-import MultiSearch from "@/components/newtab/MultiSearch";
+import BackgroundImage from "@/components/BackgroundImage";
+import ButtonBar from "@/components/ButtonBar";
+import Clock from "@/components/Clock";
+import UserInfoBox from "@/components/UserInfoBox";
+import MultiSearch from "@/components/MultiSearch";
 
-import { ThemeProvider } from "@/components/global/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
-import UserApps from "@/components/newtab/UserApps";
+import UserApps from "@/components/UserApps";
 
 const App = () => {
 	return (

@@ -22,12 +22,12 @@ import { Plus } from "lucide-react";
 import { BsApp } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";
 
-import { FormError } from "@/components/global/forms/form-error";
-import { FormSuccess } from "@/components/global/forms/form-success";
+import { FormError } from "@/components/form-error";
+import { FormSuccess } from "@/components/form-success";
 import { toast } from "sonner";
 import { cn, getFaviconUrl } from "@/lib/utils";
 
-import { SortableAppTile } from "@/components/newtab/SortableAppTile";
+import { SortableAppTile } from "@/components/SortableAppTile";
 
 interface UserAppsProps {
 	className?: string;

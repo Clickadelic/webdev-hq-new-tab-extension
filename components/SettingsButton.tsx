@@ -1,11 +1,10 @@
 import { HiOutlineCog } from "react-icons/hi";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-import { LoadGoogleAppsButton } from "@/components/newtab/buttons/LoadGoogleAppsButton";
-import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton";
-import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton";
-import { DeleteAllAppsButton } from "@/components/newtab/buttons/DeleteAllAppsButton";
-import { SelectDefaultTab } from "@/components/newtab/buttons/SelectDefaultTab";
+import { LoadGoogleAppsButton } from "@/components/LoadGoogleAppsButton";
+import { ImportAppsButton } from "@/components/ImportAppsButton";
+import { ExportAppsButton } from "@/components/ExportAppsButton";
+import { DeleteAllAppsButton } from "@/components/DeleteAllAppsButton";
 
 export const SettingsButton: React.FC = () => {
 	return (
