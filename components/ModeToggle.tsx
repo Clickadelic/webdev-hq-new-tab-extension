@@ -21,7 +21,7 @@ export function ModeToggle() {
 	};
 
 	const itemBase =
-		"border border-transparent bg-white px-3 text-slate-800 dark:bg-slate-800 dark:text-slate-300 " +
+		"border border-transparent bg-white px-3 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 " +
 		"hover:border-primary hover:text-primary hover:cursor-pointer " +
 		"data-[state=on]:border-primary data-[state=on]:text-primary";
 

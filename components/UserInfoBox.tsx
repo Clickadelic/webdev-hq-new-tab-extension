@@ -1,10 +1,10 @@
-import { dailySalutation } from "@/lib/utils"
-import { cn } from "@/lib/utils"
+import { dailySalutation } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 // import NextAppointment from "./NextAppointment"
 
 interface UserInfoBoxProps {
-	classNames?: string
+	classNames?: string;
 }
 
 /**
@@ -14,12 +14,12 @@ interface UserInfoBoxProps {
  * @returns {ReactElement} JSX element
  */
 const UserInfoBox = ({ classNames }: UserInfoBoxProps) => {
-	const salutation = dailySalutation()
+	const salutation = dailySalutation();
 	return (
 		<div className={cn("flex justify-between", classNames)}>
-			<h2 className="text-white text-4xl font-light dark:text-slate-100 text-shadow-lg">{salutation}</h2>
+			<h2 className="text-white text-4xl font-light dark:text-neutral-100 text-shadow-lg">{salutation}</h2>
 		</div>
-	)
-}
+	);
+};
 
-export default UserInfoBox
+export default UserInfoBox;

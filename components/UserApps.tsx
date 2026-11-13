@@ -144,7 +144,7 @@ const UserApps = ({ className }: UserAppsProps) => {
 	return (
 		<DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
 			<SortableContext items={apps.map(app => app.id)} strategy={rectSortingStrategy}>
-				<ul className={cn("w-full grid grid-cols-15 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur", className)}>
+				<ul className={cn("w-full grid grid-cols-15 gap-1 p-1 bg-white/30 dark:bg-neutral-900/30 rounded backdrop-blur", className)}>
 					{apps.map(app => (
 						<SortableAppTile key={app.id} app={app} onEdit={onEdit} onDelete={onDelete} wasDragged={isEditing} setWasDragged={setIsEditing} />
 					))}
@@ -163,7 +163,7 @@ const UserApps = ({ className }: UserAppsProps) => {
 							>
 								<DialogTrigger
 									onClick={() => setIsModalOpen(true)}
-									className="flex flex-col gap-1 items-center place-content-center text-slate-400 dark:text-slate-300 bg-white dark:bg-slate-800 p-2 size-17.5 rounded border transition-colors duration-150 ease-in-out border-transparent hover:border-primary hover:text-primary hover:cursor-pointer"
+									className="flex flex-col gap-1 items-center place-content-center text-neutral-400 dark:text-neutral-300 bg-white dark:bg-neutral-900 p-2 size-17.5 rounded border transition-colors duration-150 ease-in-out border-transparent hover:border-primary hover:text-primary hover:cursor-pointer"
 								>
 									<Plus />
 								</DialogTrigger>
@@ -225,9 +225,9 @@ const UserApps = ({ className }: UserAppsProps) => {
 			</SortableContext>
 			<DragOverlay zIndex={50}>
 				{draggingApp ? (
-					<div className="size-17.5 bg-white dark:bg-slate-800 pt-1 rounded border border-primary shadow-lg p-2 flex flex-col items-center justify-between">
+					<div className="size-17.5 bg-white dark:bg-neutral-900 pt-1 rounded border border-primary shadow-lg p-2 flex flex-col items-center justify-between">
 						<img src={draggingApp.icon} alt={draggingApp.title} className="size-6 rounded-xs" />
-						<span className="text-slate-800 dark:text-slate-300 text-xs truncate max-w-14">{draggingApp.title}</span>
+						<span className="text-neutral-800 dark:text-neutral-300 text-xs truncate max-w-14">{draggingApp.title}</span>
 					</div>
 				) : null}
 			</DragOverlay>

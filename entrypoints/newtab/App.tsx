@@ -5,6 +5,7 @@ import ButtonBar from "@/components/ButtonBar";
 import Clock from "@/components/Clock";
 import UserInfoBox from "@/components/UserInfoBox";
 import MultiSearch from "@/components/MultiSearch";
+import { SettingsButton } from "@/components/SettingsButton";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
@@ -20,11 +21,10 @@ const App = () => {
 					<div className="text-white mt-2 font-light text-shadow-lg text-3xl space-x-2 mr-3">{formatIsoDate(new Date())}</div>
 				</div>
 				<UserInfoBox classNames="w-full max-w-275 mt-12 mx-auto md:mt-20 xl:mt-24 mb-3 flex justify-between gap-1 p-1 pr-4" />
-				<MultiSearch classNames="w-full max-w-275 my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-800/30" />
+				<MultiSearch classNames="w-full max-w-275 my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-900/30" />
 				<UserApps className="w-full max-w-275 mx-auto" />
-
-				<ButtonBar classNames="w-[227px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-neutral-800/30 rounded backdrop-blur" />
-				<Toaster className="dark:bg-neutral-800" />
+				<SettingsButton />
+				<Toaster className="dark:bg-neutral-900" />
 			</BackgroundImage>
 		</ThemeProvider>
 	);
