@@ -1,4 +1,8 @@
 {
+	"restore_user_failed": {
+		"message": "Could not restore your account. Please try again.",
+		"description": "Error shown when the saved account cannot be restored."
+	},
 	"console_log_on_installed": {
 		"message": "WebDev HQ Chrome Extension installed! Thank You! For more information visit: https://webdev-hq.com",
 		"description": "Console message after extension installation."

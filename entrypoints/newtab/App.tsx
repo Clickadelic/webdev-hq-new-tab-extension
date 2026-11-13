@@ -8,6 +8,7 @@ import UserInfoBox from "@/components/newtab/UserInfoBox";
 import MultiSearch from "@/components/newtab/MultiSearch";
 import TabsModule from "@/components/newtab/TabsModule";
 // import EntrypointButton from "@/components/global/EntrypointButton"
+import LoginForm from "@/components/global/forms/login-form";
 
 import { ThemeProvider } from "@/components/global/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
@@ -19,7 +20,9 @@ const App = () => {
 				<div className="flex justify-between gap-1 p-1">
 					<AppIcon url={import.meta.env.WXT_HOMEPAGE_URL} classNames="flex justify-center items-center size-[64px]" />
 					<Clock classNames="text-white mt-2 font-light text-shadow-lg text-3xl space-x-2" />
-					<h2>Username</h2>
+					<div className="relative">
+						<LoginForm className="absolute top-3 right-3 w-72" />
+					</div>
 				</div>
 				<UserInfoBox classNames="w-full max-w-[1100px] mt-12 mx-auto md:mt-20 xl:mt-24 mb-3 flex justify-between gap-1 p-1 pr-4" />
 				<MultiSearch classNames="w-full max-w-[1100px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-800/30" />

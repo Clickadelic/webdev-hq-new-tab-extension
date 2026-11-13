@@ -21,6 +21,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 	const [error, setError] = useState<string>();
 	const [success, setSuccess] = useState<string>();
 	const [user, setUser] = useState<JwtPayload | null>(null);
+	const [isRestoring, setIsRestoring] = useState(true);
 
 	const form = useForm<z.infer<typeof LoginSchema>>({
 		resolver: zodResolver(LoginSchema),
@@ -34,29 +35,59 @@ const LoginForm = ({ className }: LoginFormProps) => {
 	 * Beim Mount: Token aus Storage laden & validieren
 	 */
 	useEffect(() => {
-		chrome.storage.local.get(["authToken"], result => {
-			if (!result.authToken) return;
+		let active = true;
 
-			const token = result.authToken as string;
-			const payload = decodeJwt(token);
+		const restoreUser = async () => {
+			try {
+				const { authToken } = await chrome.storage.local.get(["authToken"]);
+				if (!authToken) return;
 
-			if (payload) {
-				// Standard JWT - check expiration
-				if (payload.exp * 1000 < Date.now()) {
-					chrome.storage.local.remove("authToken");
+				const token = authToken as string;
+				const payload = decodeJwt(token);
+				if (payload) {
+					if (payload.exp * 1000 < Date.now()) {
+						await chrome.storage.local.remove("authToken");
+						return;
+					}
+					if (active) setUser(payload);
 					return;
 				}
-				setUser(payload);
-			} else {
-				// Sanctum token - assume valid for 7 days
-				setUser({
-					id: "0",
-					username: "User",
-					email: "",
-					exp: Date.now() + 60 * 60 * 24 * 7 * 1000
+
+				const apiVersion = import.meta.env.WXT_API_VERSION ?? "v1";
+				const response = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/${apiVersion}/auth/user`, {
+					headers: { Authorization: `Bearer ${token}`, Accept: "application/json" }
 				});
+				if (!response.ok) throw new Error(`User request failed (${response.status})`);
+
+				const data = z.object({
+					user: z.object({
+						id: z.union([z.string(), z.number()]),
+						name: z.string().nullish(),
+						username: z.string().nullish(),
+						email: z.string()
+					})
+				}).parse(await response.json());
+				const username = data.user.name || data.user.username;
+				if (!username) throw new Error("User response does not contain a name");
+
+				if (active) {
+					setUser({
+						id: String(data.user.id),
+						username,
+						email: data.user.email,
+						exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 7
+					});
+				}
+			} catch (err) {
+				console.error("Failed to restore user", err);
+				if (active) setError(chrome.i18n.getMessage("restore_user_failed"));
+			} finally {
+				if (active) setIsRestoring(false);
 			}
-		});
+		};
+
+		void restoreUser();
+		return () => { active = false; };
 	}, []);
 
 	/**
@@ -115,6 +146,10 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		}
 	};
 
+	if (isRestoring) {
+		return <div className={className}>{chrome.i18n.getMessage("loading")}</div>;
+	}
+
 	if (user) {
 		return (
 			<div className="bg-white/30 dark:bg-slate-800/30 rounded p-1 backdrop-blur">
@@ -135,8 +170,8 @@ const LoginForm = ({ className }: LoginFormProps) => {
 	}
 
 	return (
-		<div className="bg-white/30 dark:bg-slate-800/30 rounded p-1 backdrop-blur">
-			<div className={cn("bg-white dark:bg-slate-800 rounded p-3 flex flex-col gap-3", className)}>
+		<div className={cn("bg-white/30 dark:bg-slate-800/30 rounded p-1 backdrop-blur", className)}>
+			<div className="bg-white dark:bg-slate-800 rounded p-8 flex flex-col gap-3">
 				<div className="flex flex-col items-center gap-4">
 					<span className="sr-only">{chrome.i18n.getMessage("login")}</span>
 					<div className="space-y-2 text-center">

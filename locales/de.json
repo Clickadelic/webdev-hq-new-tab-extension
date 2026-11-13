@@ -1,4 +1,8 @@
 {
+	"restore_user_failed": {
+		"message": "Dein Konto konnte nicht wiederhergestellt werden. Bitte versuche es erneut.",
+		"description": "Fehlermeldung, wenn das gespeicherte Konto nicht wiederhergestellt werden kann."
+	},
 	"console_log_on_installed": {
 		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen: https://webdev-hq.com/",
 		"description": "Konsolennachricht nach der Installation."
