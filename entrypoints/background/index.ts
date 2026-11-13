@@ -1,21 +1,13 @@
 export default defineBackground(() => {
-	function getMenuTitle(messageName: string, fallback: string): string {
-		return chrome.i18n.getMessage(messageName, fallback) || fallback;
-	}
-
-	// ==========================================
-	// 1. ZENTRALES INSTALL- / START-EVENT
-	// ==========================================
+	// 1. Central Install - startup & restart event
 	chrome.runtime.onInstalled.addListener(() => {
 		console.log(chrome.i18n.getMessage("console_log_on_installed", "WebDev HQ Chrome-Extension installed."));
 
-		// Seasonal-Image Daten laden
+		// Load seasonal image data
 		fetchSeasonalImage().catch(console.error);
 	});
 
-	// ==========================================
-	// 2. HELPER & STORAGE LOGIK
-	// ==========================================
+	// 2. Helper & Storage Logic
 	interface StorageData {
 		backgroundImageUrl?: string;
 		lastFetchedDate?: string;
@@ -73,14 +65,14 @@ export default defineBackground(() => {
 		}
 	}
 
-	// 3. AUTO-UPDATE BEI TABS
+	// 3. Auto-update on tabs
 	chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 		if (changeInfo.status === "complete") {
 			fetchSeasonalImage().catch(err => console.error("Auto-update failed:", err));
 		}
 	});
 
-	// 6. ZENTRALER MESSAGE LISTENER
+	// 6. Central message listener
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		console.log("Background received message:", message);
 
