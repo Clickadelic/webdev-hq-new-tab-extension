@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as z from "zod";
 
 import type { DragEndEvent } from "@dnd-kit/core";
@@ -24,11 +25,15 @@ import { TbEdit } from "react-icons/tb";
 import { FormError } from "@/components/global/forms/form-error";
 import { FormSuccess } from "@/components/global/forms/form-success";
 import { toast } from "sonner";
-import { getFaviconUrl } from "@/lib/utils";
+import { cn, getFaviconUrl } from "@/lib/utils";
 
-import { SortableAppTile } from "./SortableAppTile";
+import { SortableAppTile } from "@/components/newtab/SortableAppTile";
 
-const UserApps = () => {
+interface UserAppsProps {
+	className?: string;
+}
+
+const UserApps = ({ className }: UserAppsProps) => {
 	const { apps, addApp, editApp, removeApp } = useAppStore();
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -139,81 +144,83 @@ const UserApps = () => {
 	return (
 		<DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
 			<SortableContext items={apps.map(app => app.id)} strategy={rectSortingStrategy}>
-				<ul className="w-full grid grid-cols-15 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
+				<ul className={cn("w-full grid grid-cols-15 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur", className)}>
 					{apps.map(app => (
 						<SortableAppTile key={app.id} app={app} onEdit={onEdit} onDelete={onDelete} wasDragged={isEditing} setWasDragged={setIsEditing} />
 					))}
-					<li>
-						<Dialog
-							open={isModalOpen}
-							onOpenChange={open => {
-								setIsModalOpen(open);
-								if (!open) {
-									setIsEditing(false);
-									setEditingAppId(null);
-									form.reset();
-								}
-							}}
-						>
-							<DialogTrigger
-								onClick={() => setIsModalOpen(true)}
-								className="flex flex-col gap-1 items-center place-content-center text-slate-400 dark:text-slate-300 bg-white dark:bg-slate-800 p-2 size-17.5 rounded border transition-colors duration-150 ease-in-out border-transparent hover:border-primary hover:text-primary hover:cursor-pointer"
+					{apps.length <= 104 && (
+						<li>
+							<Dialog
+								open={isModalOpen}
+								onOpenChange={open => {
+									setIsModalOpen(open);
+									if (!open) {
+										setIsEditing(false);
+										setEditingAppId(null);
+										form.reset();
+									}
+								}}
 							>
-								<Plus />
-							</DialogTrigger>
-							<DialogContent className="rounded">
-								<DialogHeader>
-									<DialogTitle className="flex items-start gap-2">
-										<BsApp />
-										{isEditing ? chrome.i18n.getMessage("edit_app_title", "Edit App") : chrome.i18n.getMessage("add_app_title", "Add App")}
-									</DialogTitle>
-									<DialogDescription>
-										{isEditing ? chrome.i18n.getMessage("edit_app_description") : chrome.i18n.getMessage("add_app_description", "Add a new app to your list.")}
-									</DialogDescription>
-								</DialogHeader>
-								<div className="flex">
-									<Form {...form}>
-										<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="w-full space-y-6">
-											<div className="space-y-4">
-												<FormField
-													control={form.control}
-													name="title"
-													render={({ field }) => (
-														<FormItem>
-															<FormLabel>{chrome.i18n.getMessage("app_title", "Title")}:</FormLabel>
-															<FormControl>
-																<Input type="text" {...field} placeholder={chrome.i18n.getMessage("app_title_placeholder", "Title")} />
-															</FormControl>
-															<FormMessage />
-														</FormItem>
-													)}
-												/>
-												<FormField
-													control={form.control}
-													name="url"
-													render={({ field }) => (
-														<FormItem>
-															<FormLabel>{chrome.i18n.getMessage("app_url", "Url")}:</FormLabel>
-															<FormControl>
-																<Input type="url" {...field} placeholder={chrome.i18n.getMessage("app_url_placeholder", "https://...")} />
-															</FormControl>
-															<FormMessage />
-														</FormItem>
-													)}
-												/>
-											</div>
-											<FormError message={error} />
-											<FormSuccess message={success} />
-											<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
-												{isEditing ? <TbEdit /> : <Plus />}
-												{isEditing ? chrome.i18n.getMessage("edit_app", "Edit app") : chrome.i18n.getMessage("add_app", "Add app")}
-											</Button>
-										</form>
-									</Form>
-								</div>
-							</DialogContent>
-						</Dialog>
-					</li>
+								<DialogTrigger
+									onClick={() => setIsModalOpen(true)}
+									className="flex flex-col gap-1 items-center place-content-center text-slate-400 dark:text-slate-300 bg-white dark:bg-slate-800 p-2 size-17.5 rounded border transition-colors duration-150 ease-in-out border-transparent hover:border-primary hover:text-primary hover:cursor-pointer"
+								>
+									<Plus />
+								</DialogTrigger>
+								<DialogContent className="rounded">
+									<DialogHeader>
+										<DialogTitle className="flex items-start gap-2">
+											<BsApp />
+											{isEditing ? chrome.i18n.getMessage("edit_app_title", "Edit App") : chrome.i18n.getMessage("add_app_title", "Add App")}
+										</DialogTitle>
+										<DialogDescription>
+											{isEditing ? chrome.i18n.getMessage("edit_app_description") : chrome.i18n.getMessage("add_app_description", "Add a new app to your list.")}
+										</DialogDescription>
+									</DialogHeader>
+									<div className="flex">
+										<Form {...form}>
+											<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="w-full space-y-6">
+												<div className="space-y-4">
+													<FormField
+														control={form.control}
+														name="title"
+														render={({ field }) => (
+															<FormItem>
+																<FormLabel>{chrome.i18n.getMessage("app_title", "Title")}:</FormLabel>
+																<FormControl>
+																	<Input type="text" {...field} placeholder={chrome.i18n.getMessage("app_title_placeholder", "Title")} />
+																</FormControl>
+																<FormMessage />
+															</FormItem>
+														)}
+													/>
+													<FormField
+														control={form.control}
+														name="url"
+														render={({ field }) => (
+															<FormItem>
+																<FormLabel>{chrome.i18n.getMessage("app_url", "Url")}:</FormLabel>
+																<FormControl>
+																	<Input type="url" {...field} placeholder={chrome.i18n.getMessage("app_url_placeholder", "https://...")} />
+																</FormControl>
+																<FormMessage />
+															</FormItem>
+														)}
+													/>
+												</div>
+												<FormError message={error} />
+												<FormSuccess message={success} />
+												<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
+													{isEditing ? <TbEdit /> : <Plus />}
+													{isEditing ? chrome.i18n.getMessage("edit_app", "Edit app") : chrome.i18n.getMessage("add_app", "Add app")}
+												</Button>
+											</form>
+										</Form>
+									</div>
+								</DialogContent>
+							</Dialog>
+						</li>
+					)}
 				</ul>
 			</SortableContext>
 			<DragOverlay zIndex={50}>

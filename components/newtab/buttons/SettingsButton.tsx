@@ -1,11 +1,11 @@
-import { HiOutlineCog } from "react-icons/hi"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { HiOutlineCog } from "react-icons/hi";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-import { LoadGoogleAppsButton } from "@/components/newtab/buttons/LoadGoogleAppsButton"
-import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
-import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton"
-import { DeleteAllAppsButton } from "@/components/newtab/buttons/DeleteAllAppsButton"
-import { SelectDefaultTab } from "@/components/newtab/buttons/SelectDefaultTab"
+import { LoadGoogleAppsButton } from "@/components/newtab/buttons/LoadGoogleAppsButton";
+import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton";
+import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton";
+import { DeleteAllAppsButton } from "@/components/newtab/buttons/DeleteAllAppsButton";
+import { SelectDefaultTab } from "@/components/newtab/buttons/SelectDefaultTab";
 
 export const SettingsButton: React.FC = () => {
 	return (
@@ -26,10 +26,6 @@ export const SettingsButton: React.FC = () => {
 				</DialogHeader>
 				<div className="space-y-2">
 					<div className="flex justify-between gap-2">
-						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("general_default_tab_settings_text", "Select your default tab.")}</p>
-						<SelectDefaultTab />
-					</div>
-					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("load_google_apps_settings_text", "Load Google Apps as default set.")}</p>
 						<LoadGoogleAppsButton />
 					</div>
@@ -48,5 +44,5 @@ export const SettingsButton: React.FC = () => {
 				</div>
 			</DialogContent>
 		</Dialog>
-	)
-}
+	);
+};
