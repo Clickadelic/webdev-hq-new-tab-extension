@@ -18,11 +18,11 @@ const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundIm
 	useEffect(() => {
 		console.log("BackgroundImage effect running");
 		let canceled = false;
-		
+
 		console.log("Sending getRandomImage message to background script");
-		chrome.runtime.sendMessage({ action: "getRandomImage" }, (response) => {
+		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
 			if (canceled) return;
-			
+
 			console.log("Raw response from background:", response);
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error);
@@ -99,12 +99,14 @@ const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundIm
 			<div className="relative z-10 min-h-screen">{children}</div>
 			{credit && (
 				<div className={creditsPosition === "center" ? "absolute bottom-4 left-1/2 z-20 -translate-x-1/2" : "absolute bottom-4 left-4 z-20"}>
-					<p className="text-xs text-white">
-						{chrome.i18n.getMessage("photo_by", "Photo by")}{" "}
+					<p className="text-xs text-white space-x-1">
+						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
+							{chrome.i18n.getMessage("photo_by", "Photo by")}
+						</a>
 						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							{credit.author}
-						</a>{" "}
-						{chrome.i18n.getMessage("on", "on")}{" "}
+						</a>
+						<span>{chrome.i18n.getMessage("on", "on")}</span>
 						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							Unsplash
 						</a>
