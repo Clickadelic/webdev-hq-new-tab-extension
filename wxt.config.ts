@@ -11,7 +11,8 @@ export default defineConfig({
 		},
 		// Inline all icon SVGs (<10kb) as base64 so they don't depend on the dev-server origin or emitted asset URLs
 		build: {
-			assetsInlineLimit: 10000
+			assetsInlineLimit: 10000,
+			chunkSizeWarningLimit: 800
 		}
 	}),
 	manifest: {
@@ -22,32 +23,7 @@ export default defineConfig({
 			48: "icon/48.png",
 			128: "icon/128.png"
 		},
-		permissions: [
-			"activeTab",
-			"bookmarks",
-			"contextMenus",
-			"cookies",
-			"downloads",
-			"history",
-			"management",
-			"tabs",
-			"tabGroups",
-			"topSites",
-			"storage",
-			"sidePanel",
-			"system.cpu",
-			"system.memory",
-			"system.storage"
-		],
-		side_panel: {
-			default_path: "sidepanel.html"
-		},
-		content_scripts: [
-			{
-				js: ["content-scripts/content.js"],
-				matches: ["*://*/*"]
-			}
-		],
+		permissions: ["activeTab", "bookmarks", "contextMenus", "cookies", "downloads", "history", "management", "tabs", "tabGroups", "topSites", "storage"],
 		// host_permissions: ["<all_urls>"],
 		host_permissions: ["https://webdev-hq.com/*"],
 		background: {

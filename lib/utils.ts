@@ -25,44 +25,6 @@ export const getUserInfo = (): Promise<chrome.identity.ProfileUserInfo> => {
 	});
 };
 
-export const getUserHistory = ({ maxResults = 15, startTime = 0 }) => {
-	return new Promise((resolve, reject) => {
-		if (!chrome.history) {
-			reject(new Error("chrome.history API is not available"));
-			return;
-		}
-
-		chrome.history.search(
-			{
-				text: "",
-				maxResults,
-				startTime
-			},
-			results => {
-				if (chrome.runtime.lastError) {
-					reject(chrome.runtime.lastError);
-				} else {
-					resolve(
-						results.map(entry => ({
-							url: entry.url,
-							title: entry.title,
-							lastVisitTime: entry.lastVisitTime
-						}))
-					);
-				}
-			}
-		);
-	});
-};
-
-export const deleteUserHistory = (): Promise<void> => {
-	return new Promise(resolve => {
-		chrome.history.deleteAll(() => {
-			resolve();
-		});
-	});
-};
-
 export function getFaviconUrl(websiteUrl: string, size = 32): string {
 	if (websiteUrl) {
 		try {

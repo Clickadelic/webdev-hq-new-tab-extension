@@ -15,14 +15,6 @@
 		"message": "Good evening",
 		"description": "Salutation in the evening."
 	},
-	"next_appointment": {
-		"message": "Next Appointment",
-		"description": "Next Appointment Tab."
-	},
-	"no_appointment_found": {
-		"message": "No appointment found.",
-		"description": "No appointment found."
-	},
 	"o_clock": {
 		"message": "o'clock",
 		"description": "Clock Tab."
@@ -107,162 +99,6 @@
 		"message": "Export Apps",
 		"description": "Export Apps button text."
 	},
-	"todos": {
-		"message": "Todos",
-		"description": "Todos Tab."
-	},
-	"create_your_first_todo": {
-		"message": "Create your first todo.",
-		"description": "Todos Tab."
-	},
-	"new_todo_title": {
-		"message": "New Todo",
-		"description": "New Todo title."
-	},
-	"new_todo_placeholder": {
-		"message": "New todo",
-		"description": "New Todo placeholder."
-	},
-	"select_date": {
-		"message": "Pick a date",
-		"description": "New date label."
-	},
-	"todo_description": {
-		"message": "Add a todo.",
-		"description": "New Todo description."
-	},
-	"new_todo_description_label": {
-		"message": "Details der Aufgabe",
-		"description": "New Todo placeholder."
-	},
-	"new_todo_description_placeholder": {
-		"message": "Details der Aufgabe",
-		"description": "New Todo placeholder."
-	},
-	"todo_deleted": {
-		"message": "Todo deleted.",
-		"description": "New Todo placeholder."
-	},
-	"add_todo_title": {
-		"message": "Todo hinzufügen",
-		"description": "App hinzufügen Text."
-	},
-	"add_todo_description": {
-		"message": "Add a new todo to your list.",
-		"description": "Todo hinzufügen Text."
-	},
-	"edit_todo_title": {
-		"message": "Edit todo",
-		"description": "Edit todo text."
-	},
-	"edit_todo_description_label": {
-		"message": "Description",
-		"description": "Todo description."
-	},
-	"edit_todo_description": {
-		"message": "Edit the current todo.",
-		"description": "Edit todo description."
-	},
-	"projects": {
-		"message": "Projects",
-		"description": "Projects Tab."
-	},
-	"add_project": {
-		"message": "Add Project",
-		"description": "Add new project button."
-	},
-	"edit_project": {
-		"message": "Edit Project",
-		"description": "Edit project button."
-	},
-	"delete_project": {
-		"message": "Delete Project",
-		"description": "Delete project button."
-	},
-	"add_project_title": {
-		"message": "Add Project",
-		"description": "Add project title."
-	},
-	"add_project_description": {
-		"message": "Add a new project to your collection.",
-		"description": "Add project description."
-	},
-	"project_title_label": {
-		"message": "Title",
-		"description": "Project title label."
-	},
-	"project_title_input_placeholder": {
-		"message": "My Project Title",
-		"description": "Project title placeholder."
-	},
-	"project_description_label": {
-		"message": "Description",
-		"description": "Project description label."
-	},
-	"project_description_input_placeholder": {
-		"message": "Project details",
-		"description": "Project description placeholder."
-	},
-	"project_url_label": {
-		"message": "Project URL",
-		"description": "Project URL label."
-	},
-	"project_url_input_placeholder": {
-		"message": "https://...",
-		"description": "Project URL placeholder."
-	},
-	"project_giturl_label": {
-		"message": "Git URL",
-		"description": "Project Git URL label."
-	},
-	"project_giturl_input_placeholder": {
-		"message": "https://...",
-		"description": "GitHub link placeholder."
-	},
-	"edit_project_title": {
-		"message": "Edit Project",
-		"description": "Edit project title."
-	},
-	"edit_project_description": {
-		"message": "Change project details.",
-		"description": "Edit project description."
-	},
-	"website": {
-		"message": "Website",
-		"description": "Website Text"
-	},
-	"git_url": {
-		"message": "Repository-Url",
-		"description": "Git-Url Text"
-	},
-	"tabs": {
-		"message": "Tabs",
-		"description": "Tabs Tab."
-	},
-	"history": {
-		"message": "History",
-		"description": "History Tab."
-	},
-	"delete_history": {
-		"message": "Delete history",
-		"description": "Delete history button."
-	},
-	"no_history_found": {
-		"message": "No history found.",
-		"description": "No history message."
-	},
-	"downloads": {
-		"message": "Downloads",
-		"description": "Downloads Tab."
-	},
-	"no_downloads_found": {
-		"message": "No downloads found.",
-		"description": "No downloads message."
-	},
-	"popular_sites": {
-		"message": "Popular Sites",
-		"description": "Popular Sites Tab."
-	},
 	"settings": {
 		"message": "Settings",
 		"description": "Settings Tab."
@@ -290,10 +126,6 @@
 	"on": {
 		"message": "on",
 		"description": "Preposition 'on'."
-	},
-	"open_dashboard": {
-		"message": "Open Dashboard",
-		"description": "Open dashboard."
 	},
 	"settings_title": {
 		"message": "Settings",
@@ -339,10 +171,6 @@
 		"message": "All app deleted.",
 		"description": "Delete all apps in the set text."
 	},
-	"more_fields_coming_soon": {
-		"message": "More fields coming soon.",
-		"description": "More fields coming soon text."
-	},
 	"toggle_fullscreen": {
 		"message": "Fullscreen",
 		"description": "Fullscreen text."
@@ -375,72 +203,8 @@
 		"message": "Loading...",
 		"description": "Loading text."
 	},
-	"email": {
-		"message": "E-Mail",
-		"description": "E-Mail field."
-	},
-	"password": {
-		"message": "Password",
-		"description": "Password field."
-	},
-	"login": {
-		"message": "Login",
-		"description": "Login Button."
-	},
-	"logout": {
-		"message": "Logout",
-		"description": "Logout Button."
-	},
-	"create_new_content": {
-		"message": "Create new content",
-		"description": "Create new content text."
-	},
-	"create_new_hyperlink": {
-		"message": "Neuen Hyperlink anlegen",
-		"description": "Create new hyperlink text."
-	},
-	"add_hyperlink_title": {
-		"message": "Neuer Hyperlink",
-		"description": "Legt einen neuen Hyperlink an."
-	},
-	"add_hyperlink_description": {
-		"message": "Füge einen neuen Hyperlink der Liste hinzu.",
-		"description": "Fügt einen Hyperlink zum Pool aller Hyperlinks hinzu."
-	},
-	"edit_hyperlink_title": {
-		"message": "Bearbeite den Hyperlink.",
-		"description": "Bearbeitet den Hyperlink."
-	},
-	"hyperlink_title": {
-		"message": "Title",
-		"description": "Bearbeitet den Hyperlink."
-	},
-	"hyperlink_url": {
-		"message": "Url",
-		"description": "Edit the url."
-	},
-	"hyperlink_url_placeholder": {
-		"message": "https://...",
-		"description": "Hyperlink url placeholder."
-	},
-	"dont_have_an_account": {
-		"message": "Du hast noch kein Konto?",
-		"description": "Don't have an account text."
-	},
-	"register": {
-		"message": "Registrieren",
-		"description": "Register text."
-	},
-	"already_have_an_account": {
-		"message": "Du hast bereits ein Konto?",
-		"description": "Already have an account text."
-	},
-	"login_here": {
-		"message": "Login",
-		"description": "Login here text."
-	},
-	"your_account": {
-		"message": "Your Account",
-		"description": "Your Account text."
+	"appearance_color_mode_settings_text": {
+		"message": "Choose color mode (light/dark/system).",
+		"description": "Appearance color mode setting text."
 	}
 }
