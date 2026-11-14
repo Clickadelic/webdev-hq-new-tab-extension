@@ -8,18 +8,23 @@ export const GetRandomImageButton = () => {
 
 	const handleClick = () => {
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
-			console.log("Full background image response:", response.response)
+			if (chrome.runtime.lastError) {
+				console.error("Background image request failed:", chrome.runtime.lastError.message)
+				toast.error("Could not contact the background image service.")
+				return
+			}
 
 			if (!response || response.error) {
+				console.error("Background image service error:", response?.error)
 				toast.error("Error loading background image.")
 				return
 			}
 
-			// Beispielzugriff auf das Objekt:
-			const imageUrl = response.response?.urls?.regular
-			const author = response.response?.user?.name || "Unbekannt"
-			const authorUrl = response.response?.user?.links?.html || "#"
-			const unsplashUrl = response.response?.links?.html || "#"
+			const image = response.data
+			const imageUrl = image?.urls?.raw || image?.urls?.full || image?.urls?.regular
+			const author = image?.user?.name || "Unknown"
+			const authorUrl = image?.user?.links?.html || "#"
+			const unsplashUrl = image?.links?.html || "#"
 
 			if (!imageUrl) {
 				toast.error("Received invalid image URL.")

@@ -43,6 +43,9 @@ export default defineBackground(() => {
 			} else {
 				const apiVersion = import.meta.env.WXT_API_VERSION ?? "v1";
 				const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/${apiVersion}/unsplash/image/seasonal`);
+				if (!res.ok) {
+					throw new Error(`Image service returned ${res.status} ${res.statusText}`);
+				}
 				const json = await res.json();
 
 				if (!json?.data?.urls) {
@@ -61,7 +64,7 @@ export default defineBackground(() => {
 			}
 		} catch (e) {
 			console.error("Error fetching seasonal image:", e);
-			return { error: "fetch_failed" };
+			return { error: e instanceof Error ? e.message : "fetch_failed" };
 		}
 	}
 
