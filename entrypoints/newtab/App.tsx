@@ -15,10 +15,10 @@ const App = () => {
 	return (
 		<ThemeProvider>
 			<BackgroundImage classNames="relative min-h-screen bg-neutral-100 dark:bg-neutral-900">
-				<div className="flex justify-between gap-1 p-1">
+				<div className="flex justify-between items-center gap-1 p-1">
 					<AppIcon url={import.meta.env.WXT_HOMEPAGE_URL} classNames="flex justify-center items-center size-[64px]" />
 					<Clock classNames="text-white mt-2 font-light text-shadow-lg text-3xl space-x-2" />
-					<DateDisplay className="mt-3 mr-3" />
+					<DateDisplay className="mr-8" />
 				</div>
 				<UserInfoBox classNames="w-full max-w-275 mt-12 mx-auto md:mt-20 xl:mt-24 mb-3 flex justify-between gap-1 p-1 pr-4" />
 				<MultiSearch classNames="w-full max-w-275 my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-900/30" />
